@@ -238,3 +238,221 @@ return 0;
 
   return 0;
   }
+
+//6)Cálculo de Idade
+//Leia o ano de nascimento de uma pessoa e o ano atual, depois calcule e exiba sua idade.
+#include <stdio.h>
+int main(){
+   int AnoNas;
+   int Ano;
+   int Idade;
+  
+   printf("Digite o seu ano de nascimento e o ano atual:\n");
+   scanf("%d %d",&AnoNas,&Ano);
+
+   Idade = Ano - AnoNas;
+
+   printf("Sua idade é:%d\n",Idade);
+
+  return 0;
+}
+
+//7)Salário Líquido
+//Leia o salário bruto de um funcionário, calcule um desconto de 10% e exiba o salário líquido.
+#include <stdio.h>
+int main(){
+   float Bruto;
+   float Liquido;
+   float Desconto;
+  
+  printf("Digite seu salário bruto:\n");
+  scanf("%f",&Bruto);
+  
+  Desconto = Bruto * 0.10;
+  Liquido = Bruto - Desconto;
+  
+  printf("Seu salário liquido é:%.2f\n",Liquido);
+  
+  return 0;
+}
+
+//8)Conversor de Moeda
+//Leia um valor em reais(R$) depois converta o valor para dólares($).
+#include <stdio.h>
+int main(){
+  float Reais;
+
+  printf("Converta REAIS em DÓLARES:\n");
+  scanf("%f",&Reais);
+
+  printf("Valor CONVERTIDO:%.2f\n",Reais * 5.76);
+
+  return 0;
+}
+
+//9)Cálculo de IMC
+//Leia o peso (em kg) e a altura (em metros) de uma pessoa, calcule o IMC (IMC = peso / altura²) e exiba o resultado.
+#include <stdio.h>
+
+int main(){
+  float KG;
+  float M;
+  float IMC;
+
+  printf("Digite sua altura(M) e seu peso(KG):\n");
+  scanf("%f %f",&M,&KG);
+
+  IMC = (KG / (M * M));
+
+  printf("O IMC é:%.2f\n",IMC);
+
+  return 0;
+}
+
+//10)Tempo de Viagem
+//Leia a distância (em km) e a velocidade média (em km/h) de uma viagem, calcule e mostre o tempo estimado da viagem em horas
+#include <stdio.h>
+int main(){
+  int KM;
+  int KMH;
+  float Time;
+
+  printf("Insira a DISTÂNCIA(KM) e a VELOCIDADE MÉDIA(KM/H):\n");
+  scanf("%d %d",&KM,&KMH);
+  
+  Time = (float)KM / KMH;
+
+  printf("Tempo estimado de:%.2f\n",Time);
+
+  return 0;
+}
+
+//Declare uma variavel do tipo int e imprima seu valor:
+#include <stdio.h>
+int main(){
+
+  int V = 5;
+  printf("%d",V);
+  return 0;
+}
+
+//Atribua valor a duas variáveis (INT) e imprima a soma.
+#include <stdio.h>
+int main(){
+  int X;
+  int Y;
+
+  printf("Insira dois valores:\n");
+  scanf("%d %d",&X,&Y);
+
+  printf("SOMA:%d\n",X+Y);
+
+  return 0;
+}
+
+//Atribua valor a duas variáveis (FLOAT) e imprima a subtração.
+#include <stdio.h>
+int main(){
+  float X;
+  float Y;
+
+  printf("Insira dois valores:\n");
+  scanf("%f %f",&X,&Y);
+
+  printf("SUBTRAÇÃO:%.2f\n",X-Y);
+
+  return 0;
+}
+
+//MULTIPLICAÇÃO DOIS NUMEROS INTEIROS E IMPRESSÃO RESULTADO.
+#include <stdio.h>
+int main(){
+  int X;
+  int Y;
+
+  printf("Insira dois valores:\n");
+  scanf("%d %d",&X,&Y);
+
+  printf("MULTIPLICAÇÃO:%d\n",X*Y);
+
+  return 0;
+}
+
+//(FLOAT) divisão com resultado.
+#include <stdio.h>
+int main(){
+  float X;
+  float Y;
+
+  printf("Insira dois valores:\n");
+  scanf("%f %f",&X,&Y);
+
+  printf("Divisão:%.2f\n",X/Y);
+
+  return 0;
+}
+
+//(INT) calcúlar dobro com resultado.
+#include <stdio.h>
+int main(){
+  int X;
+
+  printf("Insira um valor:\n");
+  scanf("%d",&X);
+
+  printf("DOBRO:%d\n",X*2);
+
+  return 0;
+}
+
+//(CHAR) letra exibir.
+#include <stdio.h>
+int main(){
+  char V = 'V';
+
+  printf("LETRA:%c\n",V);
+  
+  return 0;
+}
+
+//(FLOAT) some 10.5 e exiba.
+#include <stdio.h>
+int main(){
+  float X;
+
+  printf("INSIRA:\n");
+  scanf("%f",&X);
+
+  printf("RESULTADO:%.2f",X + 10.5);
+  
+  return 0;
+}
+
+//(INT) 4 variáveis e média.
+#include <stdio.h>
+int main(){
+   int X,Y,Z,A;
+   int Media;
+
+   printf("INSIRA 4(QUATRO) VALORES:\n");
+   scanf("%d %d %d %d",&X,&Y,&Z,&A);
+
+   Media = (X+Y+Z+A)/4;
+
+   printf("MÉDIA:%d\n",Media);
+  
+  return 0;
+}
+
+//PEDIR DOIS NÚMEROS E IMPRIMIR DIFERENÇA  .
+#include <stdio.h>
+int main(){
+   int X,Y;
+
+   printf("INSIRA 2 VALORES:\n");
+   scanf("%d %d",&X,&Y);
+
+   printf("DIFERENÇA:%d\n",X/Y);
+  
+  return 0;
+}
