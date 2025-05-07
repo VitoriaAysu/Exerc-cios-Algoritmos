@@ -219,3 +219,22 @@ return 0;
 
   return 0;
  }
+
+//5)Troca de Valores
+//Leia dois valores (A e B), troque seus valores entre si (ex.: A passa a ter o valor de B e vice-versa) e mostre os novos valores.
+#include <stdio.h>
+  int main(){
+    float ValorA,TROCA;
+    float ValorB;
+
+    printf("Insira dois valores para sua troca(A,B):\n");
+    scanf("%f %f",&ValorA,&ValorB);
+
+    TROCA = ValorA;
+    ValorA = ValorB;
+    ValorB = TROCA;
+
+    printf("VALORES TROCADOS A= %.2f\n B= %.2f\n",ValorA,ValorB);
+
+  return 0;
+  }
