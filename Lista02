@@ -103,3 +103,26 @@ int main(){
 
   return 0;
 }
+
+//Escreva um software que leia 3 valores e diga se ele é >0,=0,<0(if,else if,else).
+#include <stdio.h>
+int main(){
+  int V[3];
+  int i;
+ 
+  printf("Insira 3 Valores:\n");
+  for(i=0;i<3;i++){
+  scanf("%d",&V[i]);
+    }
+
+  for(i = 0;i < 3;i++){
+    if (V[i]>0){
+    printf("Valor %d é maior que 0!\n",V[i]);
+    }else if(V[i]==0){
+    printf("Valor %d é igual a 0!\n",V[i]);
+  } else{
+     printf("Valor %d é menor que 0!\n",V[i]);
+  }}
+
+  return 0;
+}
