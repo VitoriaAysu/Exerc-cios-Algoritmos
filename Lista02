@@ -1,1 +1,105 @@
+//Escreva um software para ler 2 valores (considere que não serão informados valores iguas) e escrever o maior deles
+#include <stdio.h>
+ int main(){
+   int ValorX;
+   int ValorY;
 
+   printf("Digite dois valores:\n");
+   scanf("%d %d",&ValorX,&ValorY);
+
+ if(ValorX>ValorY){
+   printf("O maior valor é:%d\n",ValorX);
+ } else{
+   printf("O maior valor é:%d\n",ValorY);
+ } 
+   return 0;
+ }
+
+//Escreva um software que peça para o usuário senha "1234" se for igual escreva acesso permitido se não acesso negado.
+#include <stdio.h>
+int main(){
+   int Senha;
+
+   printf("Insira sua senha(4 DIGITOS):\n");
+   scanf("%d",&Senha);
+
+  if(Senha == 1234){
+    printf("Acesso PERMITIDO!\n");
+  }else{
+    printf("Acesso NEGADO!\n");
+  }
+
+  return 0;
+}
+
+//Software para ver o ano de nascimento e determinar se é maior ou menor de idade.
+#include <stdio.h>
+int main(){
+   int Ano;
+
+   printf("Digite seu ano de nascimento:\n");
+   scanf("%d",&Ano);
+
+  if(Ano > 2007){
+    printf("Menor de idade!\n");
+  }else{
+    printf("Maior de idade!\n");
+  }
+
+  return 0;
+}
+
+//Escreva um programa que leia o numero de laranjas compradas e calcule, 0,30 se for menos de uma duzia e 0,25 se for pelo menos 12;
+#include <stdio.h>
+int main(){
+  int Laranja;
+  float Valor;
+  
+  printf("Quantas laranjas foram compradas?\n"),
+  scanf("%d",&Laranja);
+
+  if(Laranja>=12){
+    Valor = 0.25;
+    printf("Valor total:%.2f\n",Valor*Laranja);
+  }else{
+    Valor = 0.30;
+     printf("Valor total: %.2f\n",Valor*Laranja);
+  }
+
+  return 0;
+}
+
+//Escreva um software que leia dois valores e escreva eles em ordem crescente.
+#include <stdio.h>
+int main(){
+   int ValorX;
+   int ValorY;
+
+   printf("Escreva DOIS valores:\n");
+   scanf("%d %d",&ValorX,&ValorY);
+
+   if(ValorX >= ValorY){
+     printf("%d,%d.\n",ValorY,ValorX);
+   } else{
+     printf("%d,%d.\n",ValorX,ValorY);
+   }
+
+  return 0;
+}
+
+//Escreva um software que leia dois numeros e informe se é positivo ou negativo.
+#include <stdio.h>
+int main(){
+   int Valor;
+
+   printf("Insira um valorX:\n");
+   scanf("%d",&Valor);
+
+  if(Valor < 0){
+    printf("Número NEGATIVO!\n");
+  }else{
+    printf("Número POSITIVO!\n");
+  }
+
+  return 0;
+}
