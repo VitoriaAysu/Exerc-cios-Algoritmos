@@ -1,1 +1,1005 @@
+//Peça ao usuário um número (1 a 7) e exiba o dia da semana correspondente (1 = Domingo, 2 = Segunda, etc.). 
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
+void Exercicio1();
+void Exercicio2();
+void Exercicio3();
+void Exercicio4();
+void Exercicio5();
+void Exercicio6();
+void Exercicio7();
+void Exercicio8();
+void Exercicio9();
+void Exercicio10();
+void Exercicio11();
+void Exercicio12();
+void Exercicio13();
+void Exercicio14();
+void Exercicio15();
+void Exercicio16();
+void Exercicio17();
+void Exercicio18();
+void Exercicio19();
+void Exercicio20();
+
+int main() {
+    int opcao;
+
+    printf("\n--- MENU PRINCIPAL ---\n");
+     printf("\n===Bem-Vindo Professor Alexandre!===\n");
+    printf("1.Dia da semana.\n");
+    printf("2.Calculadora simples.\n");
+    printf("3.Verificar vogal ou consoante.\n");
+    printf("4.Mês do ano.\n");
+    printf("5.Classificar idade.\n");
+    printf("6.Menu de opções.\n");
+    printf("7.Cores do arco-íris.\n");
+    printf("8.Notas escolares.\n");
+    printf("9.Estado civil.\n");
+    printf("10.Formas geométricas.\n");
+    printf("11.Calculadora científica.\n");
+    printf("12.Conversor de unidades.\n");
+    printf("13.Simulador de caixa eletrônico.\n");
+    printf("14.Jogo de adivinhação.\n");
+    printf("15.Classificação de filmes.\n");
+    printf("16.Plano de telefonia.\n");
+    printf("17.Desconto por categoria.\n");
+    printf("18.Verificação de senha.\n");
+    printf("19.Simulador de clima.\n");
+    printf("20.Jogo de RPG simples.\n");
+    
+    printf("ESCOLHA UMA OPÇÃO:\n");
+    scanf("%d", &opcao);
+
+    switch(opcao) {
+        case 1:
+            Exercicio1();
+            break;
+        case 2:
+            Exercicio2();
+            break;
+        case 3:
+            Exercicio3();
+            break;
+        case 4:
+            Exercicio4();
+            break;
+        case 5:
+            Exercicio5();
+            break;
+        case 6:
+            Exercicio6();
+            break;
+        case 7:
+            Exercicio7();
+            break;
+        case 8:
+            Exercicio8();
+            break;
+        case 9:
+            Exercicio9();
+            break;
+        case 10:
+            Exercicio10();
+            break;
+        case 11:
+            Exercicio11();
+            break;
+        case 12:
+            Exercicio12();
+            break;
+        case 13:
+            Exercicio13();
+            break;
+        case 14:
+            Exercicio14();
+            break;
+        case 15:
+            Exercicio15();
+            break;
+        case 16:
+            Exercicio16();
+            break;
+        case 17:
+            Exercicio17();
+            break;
+        case 18:
+            Exercicio18();
+            break;
+        case 19:
+            Exercicio19();
+            break;
+        case 20:
+            Exercicio20();
+            break;
+        default:
+            printf("INVÁLIDO!\n");
+    }
+
+    char repetir;
+    printf("\nDeseja voltar ao menu? (S/N): ");
+    scanf(" %c", &repetir);  
+
+    if (repetir == 's' || repetir == 'S') {
+        main(); 
+    }
+    return 0;
+}
+
+void Exercicio1(){
+   int Dia;
+
+   printf("Escreva um número que corresponda a um dia(1-7)\n");
+   scanf("%d",&Dia);
+
+  switch (Dia) {
+      case 1:
+          printf("Domingo!\n");
+          break;
+      case 2:
+          printf("Segunda-feira!\n");
+          break;
+      case 3:
+          printf("Terça-feira!\n");
+          break;
+      case 4:
+          printf("Quarta-feira!\n");
+          break;
+      case 5:
+          printf("Quinta-feira!\n");
+          break;
+      case 6:
+          printf("Sexta-feira!\n");
+          break;
+      case 7:
+          printf("Sábado!\n");
+          break;
+      default:
+          printf("Número inválido. Digite um número entre 1 e 7.\n");
+          break;
+  }
+}
+
+//Calculadora simples
+//Peça dois números e uma operação (+, -, *, /). Use switch para calcular e mostrar o resultado. 
+void Exercicio2(){
+  float X,Y,Z;
+  char operador;
+
+  printf("Digite um Número:\n");
+  scanf("%f",&X);
+
+  printf("Digite o operador:\n");
+  scanf(" %c",&operador);
+
+  printf("Digite o segungo número:\n");
+  scanf("%f",&Y);
+
+  switch(operador)  {
+    case'+':
+    Z = X + Y;
+    printf("Resultado = %.2f\n",Z);
+    break;
+    case'-':
+    Z = X - Y;
+    printf("Resultado = %.2f\n",Z);
+    break;
+    case'*':
+    Z = X * Y;
+    printf("Resultado = %.2f\n",Z);
+    break;
+    case'/':
+      if (Y!=0){
+      Z = X / Y;
+      printf("Resultado = %.2f\n",Z);
+      }else{
+      printf("INVÁLIDO!\n");
+      }
+    break;
+    default:
+    printf("INVÁLIDO!\n");
+    break;
+  }
+} 
+
+//Verificar vogal ou consoante
+//Leia uma letra e use switch para dizer se é vogal ou consoante. 
+void Exercicio3(){
+   char Letra;
+
+   printf("Digite uma letra:\n");
+   scanf(" %c",&Letra);
+
+   switch(Letra){
+     case 'a': case 'A':
+     case 'e': case 'E':
+     case 'i': case 'I':
+     case 'o': case 'O':
+     case 'u': case 'U':
+     printf("VOGAL!\n");
+     break;
+     default:
+     if((Letra>='a'&& Letra<='z')||(Letra>='A'&& Letra<='Z')){
+       printf("CONSOANTE!\n");
+     }else{
+       printf("INVÁLIDO!\n");
+     }
+     break;
+   }
+} 
+
+//Mês do ano
+//Leia um número (1 a 12) e mostre o nome do mês correspondente. 
+void Exercicio4(){
+   int Mes;
+
+   printf("Digite um número(1-12):\n");
+   scanf("%d",&Mes);
+
+   switch(Mes){
+     case 1:
+         printf("Janeiro!\n");
+         break;
+     case 2:
+         printf("Fevereiro!\n");
+         break;
+     case 3:
+         printf("Março!\n");
+         break;
+     case 4:
+         printf("Abril!\n");
+         break;
+     case 5:
+         printf("Maio!\n");
+         break;
+     case 6:
+         printf("Junho!\n");
+         break;
+     case 7:
+         printf("Julho!\n");
+         break;
+     case 8:
+         printf("Agosto!\n");
+         break;
+     case 9:
+         printf("Setembro!\n");
+         break;
+     case 10:
+         printf("Outubro!\n");
+         break;
+     case 11:
+         printf("Novembro!\n");
+         break;
+     case 12:
+         printf("Dezembro!\n");
+         break;
+     default:
+         printf("Número inválido. Digite um número entre 1 e 12.\n");
+         break;
+   }
+} 
+
+//Classificar idade
+//Leia a idade de uma pessoa e use switch para classificar em "Criança" (0-12), "Adolescente" (13-19), "Adulto" (20-59) ou "Idoso" (60+). 
+void Exercicio5(){
+   int Idade,X;
+
+   printf("Digite sua IDADE:\n");
+   scanf("%d",&Idade);
+
+   if(Idade <= 12 && Idade >= 0)
+     X = 1;
+   else if(Idade >= 13 && Idade <= 19)
+     X = 2;
+   else if(Idade >= 20 && Idade <= 59)
+     X = 3;
+   else if(Idade >= 60)
+     X = 4;
+   else
+     X = 0;
+
+  switch (X) {
+      case 1:
+          printf("Criança!\n");
+          break;
+      case 2:
+          printf("Adolescente!\n");
+          break;
+      case 3:
+          printf("Adulto!\n");
+          break;
+      case 4:
+          printf("Idoso!\n");
+          break;
+      default:
+          printf("Idade inválida!\n");
+          break;
+  }
+} 
+
+//Menu de opções
+//Crie um menu com opções (1. Saudação, 2. Despedida, 3. Brinde). Exiba uma mensagem conforme a escolha. 
+void Exercicio6(){
+    int Valor;
+
+    printf("===MENU===\n");
+    printf("ESCOLHA UMA OPÇÃO:\n");
+    printf("1.Saudação!\n");
+    printf("2.Despedida!\n");
+    printf("3.Brinde!\n");
+
+    scanf("%d",&Valor);
+
+    switch(Valor){
+      case 1:
+        printf("Olá, BEM-VINDA!\n");
+      break;
+      case 2:
+        printf("Adeus, VOLTE SEMPRE!\n");
+      break;
+      case 3:
+        printf("Você ganhou um brinde!\n");
+      break;
+      default:
+      printf("INVÁLIDO!\n");
+      break;
+    }
+} 
+
+//Cores do arco-íris
+//Leia um número (1 a 7) e mostre a cor do arco-íris correspondente (1 = Vermelho, 2 = Laranja, etc.). 
+void Exercicio7(){
+  int X;
+
+  printf("Digite um número de 1-7 para escolher uma cor:\n");
+  scanf("%d",&X);
+
+  switch(X){
+    case 1:
+      printf("Vermelho.\n");
+    break;
+    case 2:
+      printf("Laranja.\n");
+    break;
+    case 3:
+      printf("Amarelo.\n");
+    break;
+    case 4:
+      printf("Verde.\n");
+    break;
+    case 5:
+      printf("Azul.\n");
+    break;
+    case 6:
+      printf("Anil.\n");
+    break;
+    case 7:
+      printf("Violeta.\n");
+    break;
+    default:
+      printf("INVÁLIDO!\n");
+    break;
+  }
+} 
+
+//Notas escolares
+//Leia uma nota (A, B, C, D, E) e use switch para exibir "Excelente", "Bom", etc. 
+void Exercicio8(){
+  char X;
+
+  printf("Insira sua nota(A,B,C,D,E):\n");
+  scanf(" %c",&X);
+
+  switch(X){
+    case 'A': case 'a':
+        printf("Excelente!\n");
+        break;
+    case 'B': case 'b':
+        printf("Bom!\n");
+        break;
+    case 'C': case 'c':
+        printf("Regular!\n");
+        break;
+    case 'D': case 'd':
+        printf("Ruim!\n");
+        break;
+    case 'E': case 'e':
+        printf("Muito ruim!\n");
+        break;
+    default:
+        printf("Nota inválida!\n");
+        break;
+  }
+} 
+
+//Estado civil
+//Leia uma letra (C, S, V, D) para Casado, Solteiro, Viúvo, Divorciado e mostre o estado civil por extenso. 
+void Exercicio9(){
+  char X;
+
+  printf("Digite (C, S, V, D) para Casado, Solteiro, Viúvo, Divorciado:\n");
+  scanf(" %c",&X);
+
+  switch(X){
+    case 'C': case 'c':
+        printf("Casado!\n");
+        break;
+    case 'S': case 's':
+        printf("Solteiro!\n");
+        break;
+    case 'V': case 'v':
+        printf("Viúvo!\n");
+        break;
+    case 'D': case 'd':
+        printf("Divorciado!\n");
+        break;
+    default:
+        printf("Opção inválida!\n");
+        break;
+  }
+} 
+
+//Formas geométricas
+//Leia um número (1 = Quadrado, 2 = Círculo, etc.) e calcule a área da forma escolhida (peça medidas necessárias). 
+void Exercicio10(){
+  int X;
+  float Lado,Raio,Base,Altura,Area;
+  float Pi = 3.14159;
+  
+  printf("===MENU===\n");
+  printf("Calculo de área:\n");
+  printf("1.QUADRADO.\n");
+  printf("2.CIRCÚLO.\n");
+  printf("3.TRIÂNGULO.\n");
+  printf("4.RETÂNGULO\n");
+  printf("Digite a opção:\n");
+  scanf("%d",&X);
+
+  switch(X){
+    case 1:
+        printf("Digite o lado do quadrado:\n");
+        scanf("%f", &Lado);
+        Area = Lado * Lado;
+        printf("Área do quadrado: %.2f\n",Area);
+        break;
+
+    case 2:
+        printf("Digite o raio do círculo:\n ");
+        scanf("%f", &Raio);
+        Area = Pi * Raio * Raio;
+        printf("Área do círculo: %.2f\n", Area);
+        break;
+
+    case 3:
+        printf("Digite a base e altura do triângulo:\n ");
+        scanf("%f %f",&Base,&Altura);
+        Area = ((Base * Altura) /2);
+        printf("Área do triângulo: %.2f\n", Area);
+        break;
+    
+    case 4:
+        printf("Digite a base do retângulo:\n ");
+        scanf("%f", &Base);
+        printf("Digite a altura do retângulo: ");
+        scanf("%f", &Altura);
+        Area = Base * Altura;
+        printf("Área do retângulo: %.2f\n", Area);
+        break;
+
+    default:
+        printf("Opção inválida!\n");
+        break; 
+  }
+} 
+
+//Calculadora científica
+//Adicione operações como potência (^), raiz (√) e módulo (%) à calculadora do exercício 2. 
+void Exercicio11() {
+    float X, Y, Z;
+    char operador;
+
+    printf("=== CALCULADORA CIENTÍFICA ===\n");
+    printf("+ (soma), - (subtração), * (multiplicação), / (divisão)\n");
+    printf("^ (potência), r (raiz quadrada), %% (módulo)\n");
+
+    printf("\nDigite o primeiro número: ");
+    scanf("%f", &X);
+
+    printf("Digite o operador: ");
+    scanf(" %c", &operador);  
+
+    if (operador != 'r') {
+        printf("Digite o segundo número: ");
+        scanf("%f", &Y);
+    }
+
+    switch (operador) {
+        case '+':
+            Z = X + Y;
+            printf("Resultado = %.2f\n", Z);
+            break;
+
+        case '-':
+            Z = X - Y;
+            printf("Resultado = %.2f\n", Z);
+            break;
+
+        case '*':
+            Z = X * Y;
+            printf("Resultado = %.2f\n", Z);
+            break;
+
+        case '/':
+            if (Y != 0) {
+                Z = X / Y;
+                printf("Resultado = %.2f\n", Z);
+            } else {
+                printf("Erro: divisão por zero!\n");
+            }
+            break;
+
+        case '^':
+            Z = pow(X, Y);
+            printf("Resultado = %.2f\n", Z);
+            break;
+
+        case 'r':
+            if (X >= 0) {
+                Z = sqrt(X);
+                printf("Raiz quadrada = %.2f\n", Z);
+            } else {
+                printf("Erro: raiz de número negativo!\n");
+            }
+            break;
+
+        case '%':
+            if ((int)Y != 0) {
+                Z = (int)X % (int)Y;
+                printf("Módulo = %.0f\n", Z);
+            } else {
+                printf("Erro: divisão por zero no módulo!\n");
+            }
+            break;
+
+        default:
+            printf("Operador inválido!\n");
+            break;
+    }
+} 
+
+///Conversor de unidades
+//Ofereça opções para converter: 
+//Temperatura (Celsius, Fahrenheit, Kelvin) 
+//Distância (Km, Milhas, Metros) 
+void Exercicio12(){
+    int menuPrincipal, opcao;
+    float valor, resultado;
+
+    printf("=== CONVERSOR DE UNIDADES ===\n");
+    printf("1. Temperatura\n");
+    printf("2. Distância\n");
+    printf("Escolha o menu (1 ou 2): ");
+    scanf("%d", &menuPrincipal);
+
+    if (menuPrincipal == 1) {
+        printf("\n=== CONVERSÃO DE TEMPERATURA ===\n");
+        printf("1. Celsius para Fahrenheit\n");
+        printf("2. Fahrenheit para Celsius\n");
+        printf("3. Celsius para Kelvin\n");
+        printf("4. Kelvin para Celsius\n");
+        printf("5. Fahrenheit para Kelvin\n");
+        printf("6. Kelvin para Fahrenheit\n");
+        printf("Escolha uma opção (1 a 6): ");
+        scanf("%d", &opcao);
+
+        printf("Digite o valor: ");
+        scanf("%f", &valor);
+
+        switch (opcao) {
+            case 1:
+                resultado = valor * 9 / 5 + 32;
+                printf("Resultado: %.2f °F\n", resultado);
+                break;
+            case 2:
+                resultado = (valor - 32) * 5 / 9;
+                printf("Resultado: %.2f °C\n", resultado);
+                break;
+            case 3:
+                resultado = valor + 273.15;
+                printf("Resultado: %.2f K\n", resultado);
+                break;
+            case 4:
+                resultado = valor - 273.15;
+                printf("Resultado: %.2f °C\n", resultado);
+                break;
+            case 5:
+                resultado = (valor - 32) * 5 / 9 + 273.15;
+                printf("Resultado: %.2f K\n", resultado);
+                break;
+            case 6:
+                resultado = (valor - 273.15) * 9 / 5 + 32;
+                printf("Resultado: %.2f °F\n", resultado);
+                break;
+            default:
+                printf("Opção inválida!\n");
+        }
+
+    } else if (menuPrincipal == 2) {
+        printf("\n=== CONVERSÃO DE DISTÂNCIA ===\n");
+        printf("1. Km para Milhas\n");
+        printf("2. Milhas para Km\n");
+        printf("3. Metros para Km\n");
+        printf("4. Km para Metros\n");
+        printf("5. Metros para Milhas\n");
+        printf("6. Milhas para Metros\n");
+        printf("Escolha uma opção (1 a 6): ");
+        scanf("%d", &opcao);
+
+        printf("Digite o valor: ");
+        scanf("%f", &valor);
+
+        switch (opcao) {
+            case 1:
+                resultado = valor * 0.621371;
+                printf("Resultado: %.2f milhas\n", resultado);
+                break;
+            case 2:
+                resultado = valor / 0.621371;
+                printf("Resultado: %.2f km\n", resultado);
+                break;
+            case 3:
+                resultado = valor / 1000;
+                printf("Resultado: %.2f km\n", resultado);
+                break;
+            case 4:
+                resultado = valor * 1000;
+                printf("Resultado: %.2f metros\n", resultado);
+                break;
+            case 5:
+                resultado = valor * 0.000621371;
+                printf("Resultado: %.5f milhas\n", resultado);
+                break;
+            case 6:
+                resultado = valor / 0.000621371;
+                printf("Resultado: %.2f metros\n", resultado);
+                break;
+            default:
+                printf("Opção inválida!\n");
+        }
+
+    } else {
+        printf("Menu inválido!\n");
+    }
+} 
+
+//Simulador de caixa eletrônico
+//Menu com opções: 
+//Saldo (fixo) 
+//Saque (verifique se tem saldo) 
+//Depósito 
+void Exercicio13() {
+    float saldo = 1000.00, valor;
+    int opcao;
+
+    printf("=== CAIXA ELETRÔNICO ===\n");
+    printf("1. Ver Saldo\n");
+    printf("2. Saque\n");
+    printf("3. Depósito\n");
+    printf("Escolha uma opção: ");
+    scanf("%d", &opcao);
+
+    switch(opcao) {
+        case 1:
+            printf("Saldo atual: R$ %.2f\n", saldo);
+            break;
+
+        case 2:
+            printf("Digite o valor do saque: R$ ");
+            scanf("%f", &valor);
+            if (valor > 0 && valor <= saldo) {
+                saldo -= valor;
+                printf("Saque realizado com sucesso!\n");
+                printf("Novo saldo: R$ %.2f\n", saldo);
+            } else {
+                printf("Saldo insuficiente ou valor inválido!\n");
+            }
+            break;
+
+        case 3:
+            printf("Digite o valor do depósito: R$ ");
+            scanf("%f", &valor);
+            if (valor > 0) {
+                saldo += valor;
+                printf("Depósito realizado com sucesso!\n");
+                printf("Novo saldo: R$ %.2f\n", saldo);
+            } else {
+                printf("Valor inválido!\n");
+            }
+            break;
+
+        default:
+            printf("Opção inválida. Encerrando...\n");
+            break;
+    }
+} 
+
+//Jogo de adivinhação
+//Gere um número aleatório (1 a 5) e peça ao usuário para adivinhar. Use switch para dar dicas. 
+void Exercicio14() {
+    int sorteado, tentativa;
+
+    srand(time(NULL)); 
+    sorteado = rand() % 5 + 1;  
+
+    printf("=== JOGO DE ADIVINHAÇÃO ===\n");
+
+    do {
+        printf("Adivinhe o número (1 a 5): ");
+        scanf("%d", &tentativa);
+
+        if (tentativa == sorteado) {
+            printf("Parabéns! Você acertou!\n");
+        } else {
+            printf("Errado!\n");
+            printf("Dica sobre o número:\n");
+
+            switch (sorteado) {
+                case 1:
+                    printf("É o primeiro número natural.\n");
+                    break;
+                case 2:
+                    printf("É o único número primo que é par.\n");
+                    break;
+                case 3:
+                    printf("É o resultado de 1 + 2.\n");
+                    break;
+                case 4:
+                    printf("É o dobro de 2.\n");
+                    break;
+                case 5:
+                    printf("É o número de dedos em uma mão.\n");
+                    break;
+            }
+        }
+    } while (tentativa != sorteado);
+} 
+
+//Classificação de filmes
+//Leia a idade do usuário e use switch para sugerir uma classificação indicativa (Livre, 12+, 16+, 18+). 
+void Exercicio15() {
+    int idade, X;
+
+    printf("Digite sua idade: ");
+    scanf("%d", &idade);
+
+    if (idade < 12)
+        X = 0;       
+    else if (idade < 16)
+        X = 1;       
+    else if (idade < 18)
+        X = 2;       
+    else
+        X = 3;       
+
+    switch (X) {
+        case 0:
+            printf("Classificação: LIVRE\n");
+            break;
+        case 1:
+            printf("Classificação: 12+\n");
+            break;
+        case 2:
+            printf("Classificação: 16+\n");
+            break;
+        case 3:
+            printf("Classificação: 18+\n");
+            break;
+        default:
+            printf("Idade inválida.\n");
+            break;
+    }
+}
+
+//Plano de telefonia
+//Ofereça planos (1. Básico, 2. Premium, etc.) e calcule o valor com base nos minutos usados (inclua if-else para franquia). 
+void Exercicio16() {
+    int plano;
+    int minutosUsados, franquia;
+    float valorTotal, valorBase, valorExcedente;
+
+    printf("=== ESCOLHA SEU PLANO DE TELEFONE ===\n");
+    printf("1 - Plano Básico: R$25,00/mês | 80 min incluídos | R$0,60 por min extra\n");
+    printf("2 - Plano Premium: R$45,00/mês | 150 min incluídos | R$0,40 por min extra\n");
+    printf("3 - Plano Ilimitado: R$75,00/mês | minutos ilimitados\n\n");
+
+    printf("Informe o número do plano desejado (1 a 3): ");
+    scanf("%d", &plano);
+
+    printf("Quantos minutos você utilizou este mês? ");
+    scanf("%d", &minutosUsados);
+
+    switch (plano) {
+        case 1:  
+            valorBase = 25.0;
+            franquia = 80;
+            if (minutosUsados > franquia)
+                valorExcedente = (minutosUsados - franquia) * 0.60;
+            else
+                valorExcedente = 0;
+            valorTotal = valorBase + valorExcedente;
+            break;
+
+        case 2:  
+            valorBase = 45.0;
+            franquia = 150;
+            if (minutosUsados > franquia)
+                valorExcedente = (minutosUsados - franquia) * 0.40;
+            else
+                valorExcedente = 0;
+            valorTotal = valorBase + valorExcedente;
+            break;
+
+        case 3:  
+            valorBase = 75.0;
+            valorTotal = valorBase;
+            break;
+
+        default:
+       printf("Opção inválida!\n");
+            return 1;
+    }
+
+    printf("Você usou %d minutos.\n", minutosUsados);
+    printf("Valor final da fatura: R$ %.2f\n", valorTotal);
+    
+} 
+
+//Desconto por categoria
+//Leia a categoria do produto (A, B, C) e aplique descontos diferentes (10%, 20%, etc.) usando switch.
+void Exercicio17() {
+    char categoria;
+    float preco, precoFinal, desconto;
+
+    printf("Digite a categoria do produto (A, B, C): ");
+    scanf(" %c", &categoria);
+
+    printf("Digite o preço do produto: R$ ");
+    scanf("%f", &preco);
+
+    switch (categoria) {
+        case 'A':
+        case 'a':
+            desconto = 0.10; 
+            break;
+        case 'B':
+        case 'b':
+            desconto = 0.20; 
+            break;
+        case 'C':
+        case 'c':
+            desconto = 0.30;
+            break;
+        default:
+            printf("Categoria inválida!\n");
+            return 1;
+    }
+
+    precoFinal = preco * (1 - desconto);
+    printf("Preço original: R$ %.2f\n", preco);
+    printf("Desconto aplicado: %.0f%%\n", desconto * 100);
+    printf("Preço com desconto: R$ %.2f\n", precoFinal);
+
+} 
+
+//Verificação de senha
+//Crie uma senha fixa. Peça ao usuário para digitar e use switch para dar feedback (certo/errado/bloqueado após 3 tentativas). 
+void Exercicio18() {
+    const char senhaCerta[] = "123";
+    char entrada[20];
+    int tentativas = 0;
+
+    while (tentativas < 3) {
+        printf("Por favor, informe sua senha: ");
+        scanf("%19s", entrada);
+
+        if (strcmp(entrada, senhaCerta) == 0) {
+            switch (tentativas) {
+                case 0:
+                    printf("Parabéns! Senha correta de primeira.\n");
+                    break;
+                default:
+                    printf("Senha correta! Você conseguiu após %d tentativa(s).\n", tentativas + 1);
+            }
+            break;
+        } else {
+            tentativas++;
+            switch (tentativas) {
+                case 1:
+                    printf("Senha errada. Tente novamente.\n");
+                    break;
+                case 2:
+                    printf("Ainda incorreta. Última tentativa!\n");
+                    break;
+                case 3:
+                    printf("Acesso bloqueado. Número máximo de tentativas excedido.\n");
+                    break;
+            }
+        }
+    }
+}
+
+//Simulador de clima
+//Leia uma temperatura e use switch para sugerir roupas (ex.: <15°C = Casaco, >30°C = Roupas leves). 
+void Exercicio19() {
+    int temp, faixa; 
+
+    printf("Digite a temperatura atual em °C: ");
+    scanf("%d", &temp);
+
+    if (temp < 15) {
+        faixa = 1;
+    } else if (temp <= 30) {
+        faixa = 2;
+    } else if (temp <= 60){
+        faixa = 3;
+    } else {
+        faixa = 0; 
+    }
+
+    switch (faixa) {
+        case 1:
+            printf("Está frio, use um casaco quente.\n");
+            break;
+        case 2:
+            printf("Temperatura amena, vista roupas confortáveis.\n");
+            break;
+        case 3:
+            printf("Está quente, prefira roupas leves e frescas.\n");
+            break;
+        default:
+            printf("Valor de temperatura inválido.\n");
+            break;
+    }
+} 
+
+//Jogo de RPG simples
+//Menu com ações (1. Atacar, 2. Defender, 3. Fugir). Use switch e números aleatórios para definir dano. 
+void Exercicio20() {
+    int escolha;
+    int dano;
+
+    srand(time(NULL)); 
+
+    printf("=== JOGO RPG SIMPLES ===\n");
+    printf("EM UM UNIVERSO POKEMON...\n");
+    printf("VOCÊ ESTAVA ANDANDO NO GRAMADO DA UNIOESTE E ENCONTROU 'RATATA':\n");
+    printf("Escolha sua ação:\n");
+    printf("1. Atacar\n");
+    printf("2. Defender\n");
+    printf("3. Fugir\n");
+    printf("Digite a opção: ");
+    scanf("%d", &escolha);
+
+    switch (escolha) {
+        case 1: 
+            dano = rand() % 20 + 1;  
+            printf("Você atacou o inimigo e causou %d de dano!\n", dano);
+            break;
+        case 2: 
+            dano = rand() % 10;  
+            printf("Você se defendeu e reduziu o dano recebido em %d pontos!\n", dano);
+            break;
+        case 3: 
+            if ((rand() % 2) == 0) { 
+                printf("Você conseguiu fugir com sucesso!\n");
+            } else {
+                printf("Você tentou fugir, mas o inimigo te pegou!\n");
+            }
+            break;
+        default:
+            printf("Opção inválida. Tente novamente.\n");
+            break;
+    }
+}
