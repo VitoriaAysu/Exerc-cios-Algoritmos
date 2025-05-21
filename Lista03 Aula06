@@ -1,0 +1,129 @@
+/*1) Faça um programa que peça e leia 4 notas, calcule e mostre a média aritmética entre elas, se a média aritmética for: 
+Média maior ou igual a 70 ALUNO -
+APROVADO 
+Média menor que 70-ALUNO REPROVADO*/
+#include <stdio.h>
+void exercicio1(){
+   float X,Y,Z,A,Media;
+
+   printf("Digite suas 4 notas:\n");
+   scanf("%f %f %f %f",&X,&Y,&Z,&A);
+
+   Media = ((X + Y + Z + A) /4);
+
+  Media = (Media >=70)? printf("APROVADO!") : printf("REPROVADO!");
+  return 0;
+}
+
+//2) Faça um programa que leia 2 números e "diga" qual é o maior deles.
+void exercicio2(){
+   float X,Y;
+
+   printf("\nInsira dois números:\n");
+   scanf("%f %f",&X,&Y);
+
+   X,Y = (X>Y)? printf("%.2f É MAIOR!\n",X) : printf("%.2f É MAIOR!\n",Y);
+
+  return 0;
+}
+
+//3) Faça um software que peça um valor ao usuário e se o código for igual a "1234" exiba a mensagem "Acesso Liberado" se não exiba a mensagem "Acesso negado tente novamente". 
+void exercicio3(){
+   int Valor;
+
+   printf("\nInsira um código:\n");
+   scanf("%d",&Valor);
+
+   Valor = (Valor == 1234)? printf("Liberado!\n") : printf("Negado!\n");
+
+  return 0;
+}
+
+//4) Faça um software que peça ao usuário um valor inteiro, e diga se o valor é positivo ou negativo.
+void exercicio4(){
+  int X;
+
+  printf("Digite um valor inteiro:\n");
+  scanf("%d",&X);
+
+  X = (X>=0)? printf("%d é positivo!\n",X) : printf("%d é negativo!\n",X);
+
+  return 0;
+}
+
+//5) Faça um software que pergunte a idade do usuário e se a idade for maior ou igual a 18 avisa que ele é obrigado a votar, caso contrário que não é obrigado a votar. 
+void exercicio5(){
+  int Idade;
+
+  printf("Insira sua idade:\n");
+  scanf("%d",&Idade);
+
+  Idade = (Idade>=18)? printf("Voto OBRIGATÓRIO!\n") : printf("Voto NÃO Obrigatório!\n");
+
+  return 0;
+}
+
+//6) Faça um software que peça 2 números e os imprima em ordem crescente. 
+void exercicio6(){
+  float X,Y;
+  
+  printf("Insira dois valores:\n");
+  scanf("%f %f",&X,&Y);
+
+  X,Y = (X>Y)? printf("%.2f,%.2f\n",Y,X) : printf("%.2f,%.2f\n",X,Y);
+
+  return 0;
+}
+
+//7) Faça um software que pergunte o salário e se for maior ou igual que R$2500,00 ele imprima a mensagem que não vai receber um aumento, e se for menor que R$2500 ele vai receber um aumento.
+void exercicio7(){
+  float Salario;
+
+  printf("Insira seu salário:\n");
+  scanf("%f",&Salario);
+
+  Salario = (Salario>=2500.00)? printf("Sem aumento!\n") : printf("Vai receber aumento!\n");
+
+  return 0;
+}
+
+//3) Escreva um software para ler o ano de nascimento de uma pessoa e escrever uma mensagem que diga se ela é menor de idade ou maior de idade. (nascido antes de 2006) 
+void exercicio03(){
+  int ano;
+
+  printf("Escreva seu ano de nascimento:\n");
+  scanf("%d",&ano);
+
+  ano = (ano<=2006)? printf("Maior de idade!\n") : printf("Menor de idade!\n");
+
+  return 0;
+}
+
+//4) Escreva um programa que leia o número de laranjas compradas, calcule e escreva o valor total da compra. Levando em consideração que as laranjas custam R$ 0,30 cada se forem compradas menos do que uma dúzia, e R$ 0,25 se forem compradas pelo menos doze. 
+void exercicio04(){
+  float X,Y;
+
+  printf("Escreva o número de laranjas compradas:\n");
+  scanf("%f",&X);
+
+  Y = (X>=12)? 0.25 : 0.30;
+
+  printf("Valor total da compra: %.2f",X * Y);
+
+  return 0;
+}
+int main() {
+    
+    exercicio1();
+    exercicio2();
+    exercicio3();
+    exercicio4();
+    exercicio5();
+    exercicio6();
+    exercicio7();
+    exercicio03();
+    exercicio04();
+  
+    return 0;
+}
+//ALGUNS EXERCICIOS FORAM PULADOS POR SEREM IGUAIS!
