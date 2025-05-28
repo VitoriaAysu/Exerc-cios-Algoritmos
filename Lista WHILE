@@ -1,0 +1,38 @@
+/*Contagem regressiva:
+Peça um número inteiro positivo e faça uma contagem regressiva até zero usando while.*/
+#include <stdio.h>
+int main(){
+   int i = 0;
+
+   printf("Insira um valor inteiro:\n");
+   scanf("%d",&i);
+  
+   while(i>=0){
+    printf("%d\n",i);
+    i--;
+   }
+
+  return 0;
+}
+
+//Soma de números positivos:
+//Leia números do usuário até que ele digite um número negativo. Some e mostre a soma dos números positivos digitados.
+#include <stdio.h>
+int main(){
+   int X;
+   int soma = 0;
+  
+   printf("Insira números para a soma:\n");
+   scanf("%d",&X);
+
+   while(X>=0){
+     soma += X;
+     printf("Soma:%d\n",soma);
+     scanf("%d",&X);
+     
+   }
+
+   printf("Soma final:%d\n",soma);
+
+  return 0;
+}
