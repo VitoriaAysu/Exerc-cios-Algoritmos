@@ -1,0 +1,922 @@
+#include <stdio.h>
+//1) Faça um software que lê uma matriz de 3 x 3, imprima a matriz original posteriormente multiplica cada elemento por 5 e imprime o resultado em c
+
+int main() {
+    int matriz[3][3];
+    int i, j;
+
+    // Leitura da matriz
+    printf("Digite os elementos da matriz 3x3:\n");
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
+            printf("Elemento [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    // Impressão da matriz original
+    printf("\nMatriz original:\n");
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
+            printf("%4d", matriz[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Multiplicando por 5
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
+            matriz[i][j] *= 5;
+        }
+    }
+
+    // Impressão da matriz multiplicada
+    printf("\nMatriz após multiplicar por 5:\n");
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
+            printf("%4d", matriz[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+//Exemplo: Matriz 2x2 de Nomes
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char nomes[2][2][50];  // matriz 2x2 de strings, com até 49 caracteres cada
+    int i, j;
+
+    // Leitura da matriz de nomes
+    printf("Digite os nomes para preencher a matriz 2x2:\n");
+    for (i = 0; i < 2; i++) {
+        for (j = 0; j < 2; j++) {
+            printf("Nome [%d][%d]: ", i, j);
+            scanf("%s", nomes[i][j]);  // lê uma string sem espaço
+        }
+    }
+
+    // Impressão da matriz original
+    printf("\nMatriz de nomes:\n");
+    for (i = 0; i < 2; i++) {
+        for (j = 0; j < 2; j++) {
+            printf("%10s", nomes[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+    }
+
+   //2) Faça um software que lê um vetor de 3 elementos e uma matriz de 3 x 3 elementos. Posteriormente deve fazer a multiplicação do vetor pelas colunas da matriz
+   #include <stdio.h>
+
+int main() {
+    int vetor[3];
+    int matriz[3][3];
+    int resultado[3] = {0, 0, 0};
+    int i, j;
+
+    // Leitura do vetor
+    printf("Digite 3 elementos do vetor:\n");
+    for (i = 0; i < 3; i++) {
+        printf("Vetor[%d]: ", i);
+        scanf("%d", &vetor[i]);
+    }
+
+    // Leitura da matriz
+    printf("\nDigite os elementos da matriz 3x3:\n");
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
+            printf("Matriz[%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    // Multiplicação do vetor pelas colunas da matriz
+    for (j = 0; j < 3; j++) {           // para cada coluna
+        for (i = 0; i < 3; i++) {       // para cada linha
+            resultado[j] += vetor[i] * matriz[i][j];
+        }
+    }
+
+    // Exibindo o resultado
+    printf("\nResultado da multiplicação do vetor pelas colunas da matriz:\n");
+    for (j = 0; j < 3; j++) {
+        printf("Resultado coluna %d: %d\n", j, resultado[j]);
+    }
+
+    return 0;
+}
+
+//Objetivo do programa:
+//Ler o nome de 3 pessoas (usando strings).
+
+//Ler a idade de cada uma (número).
+
+//Imprimir uma listagem com nome + idade.
+
+#include <stdio.h>
+
+int main() {
+    char nomes[3][50];  // matriz de strings: 3 nomes, até 49 letras cada
+    int idades[3];
+    int i;
+
+    // Leitura dos dados
+    for (i = 0; i < 3; i++) {
+        printf("Digite o nome da pessoa %d: ", i + 1);
+        scanf("%s", nomes[i]);  // lê nome (sem espaço)
+
+        printf("Digite a idade de %s: ", nomes[i]);
+        scanf("%d", &idades[i]);
+    }
+
+    // Exibindo as informações
+    printf("\nLista de pessoas:\n");
+    for (i = 0; i < 3; i++) {
+        printf("Nome: %s | Idade: %d anos\n", nomes[i], idades[i]);
+    }
+
+    return 0;
+}
+
+
+//Fazer uma matriz de 2x2 do tipo string para armazenar os seguintes dados
+//Código: (iniciando em 01)
+//Nome:
+//Sobrenome:
+//e-mail:
+//Telefone:
+//de 4 "Clientes", usando a função struct facilita a vida
+#include <stdio.h>
+
+struct Cliente {
+    int codigo;
+    char nome[50];
+    char sobrenome[50];
+    char email[100];
+    char telefone[20];
+};
+
+int main() {
+    struct Cliente clientes[2][2];  // matriz 2x2 de clientes
+    int i, j;
+    int cod = 1;
+
+    // Entrada dos dados
+    for (i = 0; i < 2; i++) {
+        for (j = 0; j < 2; j++) {
+            printf("\n--- Cliente [%d][%d] ---\n", i, j);
+            clientes[i][j].codigo = cod++;
+
+            printf("Nome: ");
+            scanf("%s", clientes[i][j].nome);
+
+            printf("Sobrenome: ");
+            scanf("%s", clientes[i][j].sobrenome);
+
+            printf("E-mail: ");
+            scanf("%s", clientes[i][j].email);
+
+            printf("Telefone: ");
+            scanf("%s", clientes[i][j].telefone);
+        }
+    }
+
+    // Exibição dos dados
+    printf("\n=== Lista de Clientes ===\n");
+    for (i = 0; i < 2; i++) {
+        for (j = 0; j < 2; j++) {
+            struct Cliente c = clientes[i][j];
+            printf("\nCliente Código: %02d\n", c.codigo);
+            printf("Nome Completo: %s %s\n", c.nome, c.sobrenome);
+            printf("E-mail: %s\n", c.email);
+            printf("Telefone: %s\n", c.telefone);
+        }
+    }
+
+    return 0;
+}
+
+//Preenchimento e Impressão
+//Crie uma matriz 3x3 e preencha-a com números inteiros inseridos pelo usuário. Em seguida, exiba o conteúdo da matriz na tela.
+#include <stdio.h>
+
+int main() {
+    int matriz[3][3];
+    int i, j;
+
+    // Leitura da matriz
+    printf("Digite os 9 elementos da matriz 3x3:\n");
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
+            printf("Elemento [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    // Impressão da matriz
+    printf("\nMatriz 3x3:\n");
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
+            printf("%4d", matriz[i][j]);  // imprime com alinhamento
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+//Soma das Linhas.
+//Dada uma matriz 4x4, calcule e exiba a soma dos elementos de cada linha.
+#include <stdio.h>
+
+int main() {
+    int matriz[4][4];
+    int i, j, soma;
+
+    // Leitura da matriz
+    printf("Digite os 16 elementos da matriz 4x4:\n");
+    for (i = 0; i < 4; i++) {
+        for (j = 0; j < 4; j++) {
+            printf("Elemento [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    // Soma das linhas
+    printf("\nSoma dos elementos de cada linha:\n");
+    for (i = 0; i < 4; i++) {
+        soma = 0;
+        for (j = 0; j < 4; j++) {
+            soma += matriz[i][j];
+        }
+        printf("Linha %d: %d\n", i, soma);
+    }
+
+    return 0;
+}
+
+//Soma das Colunas
+//Dada uma matriz 4x4, calcule e exiba a soma dos elementos de cada coluna.
+#include <stdio.h>
+
+int main() {
+    int matriz[4][4];
+    int i, j, soma;
+
+    // Leitura da matriz
+    printf("Digite os 16 elementos da matriz 4x4:\n");
+    for (i = 0; i < 4; i++) {
+        for (j = 0; j < 4; j++) {
+            printf("Elemento [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    // Soma das colunas
+    printf("\nSoma dos elementos de cada coluna:\n");
+    for (j = 0; j < 4; j++) {
+        soma = 0;
+        for (i = 0; i < 4; i++) {
+            soma += matriz[i][j];
+        }
+        printf("Coluna %d: %d\n", j, soma);
+    }
+
+    return 0;
+}
+
+//7)Multiplicação de Matrizes
+Dada duas matrizes 2x2, calcule e exiba a multiplicação das mesmas posições, matrizA[0][0]*matrizB[0][0].
+#include <stdio.h>
+
+int main() {
+    int matrizA[2][2], matrizB[2][2], resultado[2][2];
+    int i, j;
+
+    // Leitura da matriz A
+    printf("Digite os elementos da matriz A (2x2):\n");
+    for (i = 0; i < 2; i++) {
+        for (j = 0; j < 2; j++) {
+            printf("A[%d][%d]: ", i, j);
+            scanf("%d", &matrizA[i][j]);
+        }
+    }
+
+    // Leitura da matriz B
+    printf("\nDigite os elementos da matriz B (2x2):\n");
+    for (i = 0; i < 2; i++) {
+        for (j = 0; j < 2; j++) {
+            printf("B[%d][%d]: ", i, j);
+            scanf("%d", &matrizB[i][j]);
+        }
+    }
+
+    // Multiplicação elemento a elemento
+    for (i = 0; i < 2; i++) {
+        for (j = 0; j < 2; j++) {
+            resultado[i][j] = matrizA[i][j] * matrizB[i][j];
+        }
+    }
+
+    // Impressão do resultado
+    printf("\nResultado da multiplicação elemento a elemento:\n");
+    for (i = 0; i < 2; i++) {
+        for (j = 0; j < 2; j++) {
+            printf("%4d", resultado[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+//Matriz Espelhada
+//Crie uma matriz 4x4 e crie uma cópia dela que seja espelhada horizontalmente (inverter as linhas).
+#include <stdio.h>
+
+int main() {
+    int matriz[4][4], espelhada[4][4];
+    int i, j;
+
+    // Leitura da matriz original
+    printf("Digite os 16 elementos da matriz 4x4:\n");
+    for (i = 0; i < 4; i++) {
+        for (j = 0; j < 4; j++) {
+            printf("Elemento [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    // Criando a matriz espelhada (inverter linhas)
+    for (i = 0; i < 4; i++) {
+        for (j = 0; j < 4; j++) {
+            espelhada[i][j] = matriz[3 - i][j];
+        }
+    }
+
+    // Impressão da matriz original
+    printf("\nMatriz original:\n");
+    for (i = 0; i < 4; i++) {
+        for (j = 0; j < 4; j++) {
+            printf("%4d", matriz[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Impressão da matriz espelhada
+    printf("\nMatriz espelhada horizontalmente:\n");
+    for (i = 0; i < 4; i++) {
+        for (j = 0; j < 4; j++) {
+            printf("%4d", espelhada[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+//Matriz de Fibonacci
+//Preencha uma matriz 3x3 com os primeiros 9 números da sequência de Fibonacci e exiba a matriz.
+#include <stdio.h>
+
+int main() {
+    int matriz[3][3];
+    int i, j;
+    int fib[9];
+
+    // Gerar os primeiros 9 números de Fibonacci
+    fib[0] = 0;
+    fib[1] = 1;
+    for (i = 2; i < 9; i++) {
+        fib[i] = fib[i - 1] + fib[i - 2];
+    }
+
+    // Preencher a matriz 3x3 com os números de Fibonacci
+    int k = 0;
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
+            matriz[i][j] = fib[k++];
+        }
+    }
+
+    // Exibir a matriz
+    printf("Matriz 3x3 com os primeiros 9 números de Fibonacci:\n");
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
+            printf("%5d", matriz[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+
+//jogo da velha
+#include <stdio.h>
+
+char tabuleiro[3][3];
+
+// Inicializa o tabuleiro com espaços
+void inicializar() {
+    for (int i = 0; i < 3; i++)
+        for (int j = 0; j < 3; j++)
+            tabuleiro[i][j] = ' ';
+}
+
+// Mostra o tabuleiro na tela
+void mostrarTabuleiro() {
+    printf("\n");
+    for (int i = 0; i < 3; i++) {
+        printf(" %c | %c | %c ", tabuleiro[i][0], tabuleiro[i][1], tabuleiro[i][2]);
+        if (i != 2) printf("\n---|---|---\n");
+    }
+    printf("\n");
+}
+
+// Verifica se um jogador ganhou
+int verificarVitoria(char jogador) {
+    // Linhas e colunas
+    for (int i = 0; i < 3; i++) {
+        if ((tabuleiro[i][0] == jogador && tabuleiro[i][1] == jogador && tabuleiro[i][2] == jogador) ||
+            (tabuleiro[0][i] == jogador && tabuleiro[1][i] == jogador && tabuleiro[2][i] == jogador))
+            return 1;
+    }
+    // Diagonais
+    if ((tabuleiro[0][0] == jogador && tabuleiro[1][1] == jogador && tabuleiro[2][2] == jogador) ||
+        (tabuleiro[0][2] == jogador && tabuleiro[1][1] == jogador && tabuleiro[2][0] == jogador))
+        return 1;
+
+    return 0;
+}
+
+// Verifica se o tabuleiro está cheio (empate)
+int verificarEmpate() {
+    for (int i = 0; i < 3; i++)
+        for (int j = 0; j < 3; j++)
+            if (tabuleiro[i][j] == ' ')
+                return 0; // Ainda tem espaço vazio
+    return 1; // Está cheio
+}
+
+// Função principal
+int main() {
+    int linha, coluna;
+    char jogador = 'X';
+
+    inicializar();
+
+    while (1) {
+        mostrarTabuleiro();
+
+        printf("Jogador %c, digite a linha (0-2): ", jogador);
+        scanf("%d", &linha);
+        printf("Jogador %c, digite a coluna (0-2): ", jogador);
+        scanf("%d", &coluna);
+
+        // Verifica validade da jogada
+        if (linha < 0 || linha > 2 || coluna < 0 || coluna > 2) {
+            printf("Posição inválida! Tente novamente.\n");
+            continue;
+        }
+        if (tabuleiro[linha][coluna] != ' ') {
+            printf("Posição ocupada! Tente novamente.\n");
+            continue;
+        }
+
+        // Coloca a jogada
+        tabuleiro[linha][coluna] = jogador;
+
+        // Verifica vitória
+        if (verificarVitoria(jogador)) {
+            mostrarTabuleiro();
+            printf("Jogador %c venceu!\n", jogador);
+            break;
+        }
+
+        // Verifica empate
+        if (verificarEmpate()) {
+            mostrarTabuleiro();
+            printf("Empate!\n");
+            break;
+        }
+
+        // Troca jogador
+        jogador = (jogador == 'X') ? 'O' : 'X';
+    }
+
+    return 0;
+}
+
+//Desafio 2...
+//Fazer um sodoku de 6x6 (o sudoku de 6x6 pode receber número de 1 a 6, quem tiver dúvidas busque as regras)
+#include <stdio.h>
+
+#define N 6
+
+int sudoku[N][N] = {
+    {0, 0, 0, 4, 0, 6},
+    {0, 0, 6, 0, 0, 0},
+    {0, 6, 0, 0, 3, 0},
+    {0, 5, 0, 0, 1, 0},
+    {0, 0, 0, 5, 0, 0},
+    {1, 0, 0, 0, 0, 0}
+};
+
+// Função para imprimir o tabuleiro
+void imprimir() {
+    for (int i = 0; i < N; i++) {
+        if (i % 2 == 0 && i != 0)
+            printf("---------------------\n");
+        for (int j = 0; j < N; j++) {
+            if (j % 3 == 0 && j != 0)
+                printf("| ");
+            printf("%d ", sudoku[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+// Verifica se o número pode ser colocado na linha
+int verificarLinha(int linha, int num) {
+    for (int i = 0; i < N; i++)
+        if (sudoku[linha][i] == num)
+            return 0;
+    return 1;
+}
+
+// Verifica se o número pode ser colocado na coluna
+int verificarColuna(int coluna, int num) {
+    for (int i = 0; i < N; i++)
+        if (sudoku[i][coluna] == num)
+            return 0;
+    return 1;
+}
+
+// Verifica o bloco 2x3
+int verificarBloco(int linha, int coluna, int num) {
+    int linhaInicio = (linha / 2) * 2;
+    int colunaInicio = (coluna / 3) * 3;
+
+    for (int i = linhaInicio; i < linhaInicio + 2; i++) {
+        for (int j = colunaInicio; j < colunaInicio + 3; j++) {
+            if (sudoku[i][j] == num)
+                return 0;
+        }
+    }
+    return 1;
+}
+
+// Verifica se é válido colocar o número
+int valido(int linha, int coluna, int num) {
+    return verificarLinha(linha, num) &&
+           verificarColuna(coluna, num) &&
+           verificarBloco(linha, coluna, num);
+}
+
+// Encontra a próxima célula vazia (-1, -1 se não houver)
+int encontrarVazio(int *linha, int *coluna) {
+    for (*linha = 0; *linha < N; (*linha)++) {
+        for (*coluna = 0; *coluna < N; (*coluna)++) {
+            if (sudoku[*linha][*coluna] == 0)
+                return 1;
+        }
+    }
+    return 0;
+}
+
+// Resolve o Sudoku via backtracking
+int resolver() {
+    int linha, coluna;
+
+    if (!encontrarVazio(&linha, &coluna))
+        return 1; // sudoku resolvido
+
+    for (int num = 1; num <= 6; num++) {
+        if (valido(linha, coluna, num)) {
+            sudoku[linha][coluna] = num;
+
+            if (resolver())
+                return 1;
+
+            sudoku[linha][coluna] = 0; // backtrack
+        }
+    }
+    return 0; // gatilho para voltar
+}
+
+int main() {
+    printf("Sudoku 6x6 inicial:\n");
+    imprimir();
+
+    if (resolver()) {
+        printf("\nSudoku resolvido:\n");
+        imprimir();
+    } else {
+        printf("\nNao foi possivel resolver o sudoku.\n");
+    }
+
+    return 0;
+}
+
+//Faça um software que imprima a diagonal de uma matriz 3 x 3 da esquerda para a direita.
+#include <stdio.h>
+
+int main() {
+    int matriz[3][3];
+    int i, j;
+
+    // Leitura da matriz
+    printf("Digite os elementos da matriz 3x3:\n");
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
+            printf("Elemento [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    // Impressão da diagonal principal
+    printf("\nDiagonal principal da matriz:\n");
+    for (i = 0; i < 3; i++) {
+        printf("%d ", matriz[i][i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+
+//Faça um software que compare os elementos das matrizes 3 x 3 A e B para ver se são iguais.
+#include <stdio.h>
+
+int main() {
+    int A[3][3], B[3][3];
+    int i, j;
+    int iguais = 1; // flag para controlar se são iguais
+
+    // Leitura da matriz A
+    printf("Digite os elementos da matriz A (3x3):\n");
+    for(i=0; i<3; i++) {
+        for(j=0; j<3; j++) {
+            printf("A[%d][%d]: ", i, j);
+            scanf("%d", &A[i][j]);
+        }
+    }
+
+    // Leitura da matriz B
+    printf("\nDigite os elementos da matriz B (3x3):\n");
+    for(i=0; i<3; i++) {
+        for(j=0; j<3; j++) {
+            printf("B[%d][%d]: ", i, j);
+            scanf("%d", &B[i][j]);
+        }
+    }
+
+    // Comparação das matrizes
+    for(i=0; i<3; i++) {
+        for(j=0; j<3; j++) {
+            if (A[i][j] != B[i][j]) {
+                iguais = 0; // encontrou diferença
+                break;
+            }
+        }
+        if (!iguais) break;
+    }
+
+    // Resultado
+    if (iguais) {
+        printf("\nAs matrizes são iguais.\n");
+    } else {
+        printf("\nAs matrizes são diferentes.\n");
+    }
+
+    return 0;
+}
+
+
+//Faça um software que calcule a soma dos elementos das diagonais de uma matriz 5 x 5, primeiro da esquerda para a direita, e depois da direita para a esquerda.
+#include <stdio.h>
+
+int main() {
+    int matriz[5][5];
+    int i, j;
+    int somaPrincipal = 0, somaSecundaria = 0;
+
+    // Leitura da matriz
+    printf("Digite os elementos da matriz 5x5:\n");
+    for (i = 0; i < 5; i++) {
+        for (j = 0; j < 5; j++) {
+            printf("Elemento [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    // Cálculo das somas das diagonais
+    for (i = 0; i < 5; i++) {
+        somaPrincipal += matriz[i][i];           // diagonal principal
+        somaSecundaria += matriz[i][4 - i];      // diagonal secundária
+    }
+
+    // Exibir resultados
+    printf("\nSoma da diagonal principal (esquerda para direita): %d\n", somaPrincipal);
+    printf("Soma da diagonal secundária (direita para esquerda): %d\n", somaSecundaria);
+
+    return 0;
+}
+
+//Faça um software que encontre o maior e o menor elemento de uma matriz 5 x 5
+import random
+
+#include <stdio.h>
+
+int main() {
+    int matriz[5][5];
+    int i, j;
+    int maior, menor;
+
+    // Preenchendo a matriz com valores fixos como exemplo
+    int valores[5][5] = {
+        {12, 45, 67, 23, 9},
+        {34, 56, 78, 90, 11},
+        {22, 44, 66, 88, 10},
+        {1, 5, 7, 3, 6},
+        {100, 2, 8, 4, 50}
+    };
+
+    // Copiando os valores para a matriz
+    for (i = 0; i < 5; i++) {
+        for (j = 0; j < 5; j++) {
+            matriz[i][j] = valores[i][j];
+        }
+    }
+
+    // Inicializando maior e menor com o primeiro elemento
+    maior = matriz[0][0];
+    menor = matriz[0][0];
+
+    // Encontrar maior e menor elemento
+    for (i = 0; i < 5; i++) {
+        for (j = 0; j < 5; j++) {
+            if (matriz[i][j] > maior) {
+                maior = matriz[i][j];
+            }
+            if (matriz[i][j] < menor) {
+                menor = matriz[i][j];
+            }
+        }
+    }
+
+    // Mostrar a matriz
+    printf("Matriz 5x5:\n");
+    for (i = 0; i < 5; i++) {
+        for (j = 0; j < 5; j++) {
+            printf("%4d ", matriz[i][j]);
+        }
+        printf("\n");
+    }
+
+    printf("\nMaior elemento da matriz: %d\n", maior);
+    printf("Menor elemento da matriz: %d\n", menor);
+
+    return 0;
+}
+
+//solicita:
+#include <stdio.h>
+
+int main() {
+    int matriz[5][5];
+    int i, j;
+    int maior, menor;
+
+    // Lendo os valores da matriz do usuário
+    printf("Digite os valores da matriz 5x5:\n");
+    for (i = 0; i < 5; i++) {
+        for (j = 0; j < 5; j++) {
+            printf("Elemento [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    // Inicializando maior e menor com o primeiro elemento
+    maior = matriz[0][0];
+    menor = matriz[0][0];
+
+    // Encontrar maior e menor elemento
+    for (i = 0; i < 5; i++) {
+        for (j = 0; j < 5; j++) {
+            if (matriz[i][j] > maior) {
+                maior = matriz[i][j];
+            }
+            if (matriz[i][j] < menor) {
+                menor = matriz[i][j];
+            }
+        }
+    }
+
+    // Mostrar a matriz
+    printf("\nMatriz 5x5:\n");
+    for (i = 0; i < 5; i++) {
+        for (j = 0; j < 5; j++) {
+            printf("%4d ", matriz[i][j]);
+        }
+        printf("\n");
+    }
+
+    printf("\nMaior elemento da matriz: %d\n", maior);
+    printf("Menor elemento da matriz: %d\n", menor);
+
+    return 0;
+}
+
+//Como sugestão, faça um software utilizando matriz de 100 x 100 que imprima o triangulo de pascal com a quantidades de linhas que o usuário pedir
+#include <stdio.h>
+
+int main() {
+    int n, i, j;
+    int pascal[100][100] = {0};
+
+    printf("Digite o número de linhas do Triângulo de Pascal (até 100): ");
+    scanf("%d", &n);
+
+    if (n < 1 || n > 100) {
+        printf("Número inválido! Escolha um valor entre 1 e 100.\n");
+        return 1;
+    }
+
+    // Montar o triângulo
+    for (i = 0; i < n; i++) {
+        pascal[i][0] = 1;  // primeira coluna é sempre 1
+        pascal[i][i] = 1;  // diagonal principal é sempre 1
+
+        for (j = 1; j < i; j++) {
+            pascal[i][j] = pascal[i-1][j-1] + pascal[i-1][j];
+        }
+    }
+
+    // Imprimir o triângulo
+    printf("\nTriângulo de Pascal com %d linhas:\n\n", n);
+    for (i = 0; i < n; i++) {
+        // Espaço para alinhamento (opcional)
+        for (j = 0; j < n - i - 1; j++) {
+            printf("  ");
+        }
+        // Imprime os números da linha
+        for (j = 0; j <= i; j++) {
+            printf("%4d ", pascal[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+
+
+// faça um software utilizando matriz de 100 x 100 que imprima o triangulo de pascal com a quantidades de linhas que o usuário pedir, mas ao contrário...
+#include <stdio.h>
+
+int main() {
+    int n, i, j;
+    int pascal[100][100] = {0};
+
+    printf("Digite o número de linhas do Triângulo de Pascal (até 100): ");
+    scanf("%d", &n);
+
+    if (n < 1 || n > 100) {
+        printf("Número inválido! Escolha um valor entre 1 e 100.\n");
+        return 1;
+    }
+
+    // Montar o triângulo de Pascal normalmente
+    for (i = 0; i < n; i++) {
+        pascal[i][0] = 1;
+        pascal[i][i] = 1;
+
+        for (j = 1; j < i; j++) {
+            pascal[i][j] = pascal[i-1][j-1] + pascal[i-1][j];
+        }
+    }
+
+    // Imprimir o triângulo de Pascal de baixo para cima (ao contrário)
+    printf("\nTriângulo de Pascal invertido com %d linhas:\n\n", n);
+    for (i = n - 1; i >= 0; i--) {
+        // Espaço para alinhamento (para manter o formato de triângulo invertido)
+        for (j = 0; j < n - i - 1; j++) {
+            printf("  ");
+        }
+        // Imprime os números da linha
+        for (j = 0; j <= i; j++) {
+            printf("%4d ", pascal[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
