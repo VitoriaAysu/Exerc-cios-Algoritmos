@@ -1,0 +1,264 @@
+1. Cadastro de Aluno
+
+Crie uma struct Aluno com os campos: nome (string), idade (int) e nota (float).
+Peça ao usuário para digitar os dados de um aluno.
+Armazene esses dados em uma variável do tipo Aluno.
+Exiba os dados do aluno no final.
+
+#include <stdio.h>
+#include <string.h>
+
+typedef struct {
+    char nome[100];
+    int idade;
+    float nota;
+} Aluno;
+
+int main() {
+    Aluno aluno;
+
+    printf("Digite o nome do aluno: ");
+    // fgets permite ler strings com espaços
+    fgets(aluno.nome, sizeof(aluno.nome), stdin);
+    // Remove o \n que fgets captura
+    aluno.nome[strcspn(aluno.nome, "\n")] = '\0';
+
+    printf("Digite a idade do aluno: ");
+    scanf("%d", &aluno.idade);
+
+    printf("Digite a nota do aluno: ");
+    scanf("%f", &aluno.nota);
+
+    printf("\nDados do aluno:\n");
+    printf("Nome: %s\n", aluno.nome);
+    printf("Idade: %d\n", aluno.idade);
+    printf("Nota: %.2f\n", aluno.nota);
+
+    return 0;
+}
+
+2. Cadastro de Livros
+
+Crie uma struct Livro com os campos: titulo (string), autor (string), ano (int) e preco (float).
+Declare um vetor de Livro com tamanho 5.
+Peça ao usuário para digitar os dados dos 5 livros.
+Ao final, exiba todos os livros cadastrados.
+#include <stdio.h>
+#include <string.h>
+
+typedef struct {
+    char titulo[100];
+    char autor[100];
+    int ano;
+    float preco;
+} Livro;
+
+int main() {
+    Livro livros[5];
+    int i;
+
+    for (i = 0; i < 5; i++) {
+        printf("Cadastro do livro %d:\n", i + 1);
+
+        printf("Digite o título: ");
+        fgets(livros[i].titulo, sizeof(livros[i].titulo), stdin);
+        livros[i].titulo[strcspn(livros[i].titulo, "\n")] = '\0';
+
+        printf("Digite o autor: ");
+        fgets(livros[i].autor, sizeof(livros[i].autor), stdin);
+        livros[i].autor[strcspn(livros[i].autor, "\n")] = '\0';
+
+        printf("Digite o ano de publicação: ");
+        scanf("%d", &livros[i].ano);
+
+        printf("Digite o preço: ");
+        scanf("%f", &livros[i].preco);
+
+        // Limpar o buffer do teclado para evitar problemas com fgets
+        while (getchar() != '\n');
+        printf("\n");
+    }
+
+    printf("Livros cadastrados:\n");
+    for (i = 0; i < 5; i++) {
+        printf("Livro %d:\n", i + 1);
+        printf("Título: %s\n", livros[i].titulo);
+        printf("Autor: %s\n", livros[i].autor);
+        printf("Ano: %d\n", livros[i].ano);
+        printf("Preço: R$ %.2f\n\n", livros[i].preco);
+    }
+
+    return 0;
+}
+
+//3. Agenda de Contatos
+
+Crie uma struct Contato com os campos: nome (string), telefone (string) e email (string).
+Implemente um programa com menu que permita:
+Adicionar contato (armazenando em um vetor de Contato).
+Listar todos os contatos.
+Sair do programa.
+O programa deve continuar em execução até que o usuário escolha sair.
+
+#include <stdio.h>
+#include <string.h>
+
+#define MAX_CONTATOS 100
+
+typedef struct {
+    char nome[100];
+    char telefone[20];
+    char email[100];
+} Contato;
+
+void adicionarContato(Contato contatos[], int *qtd) {
+    if (*qtd >= MAX_CONTATOS) {
+        printf("Agenda cheia! Não é possível adicionar mais contatos.\n");
+        return;
+    }
+
+    printf("Digite o nome: ");
+    fgets(contatos[*qtd].nome, sizeof(contatos[*qtd].nome), stdin);
+    contatos[*qtd].nome[strcspn(contatos[*qtd].nome, "\n")] = '\0';
+
+    printf("Digite o telefone: ");
+    fgets(contatos[*qtd].telefone, sizeof(contatos[*qtd].telefone), stdin);
+    contatos[*qtd].telefone[strcspn(contatos[*qtd].telefone, "\n")] = '\0';
+
+    printf("Digite o email: ");
+    fgets(contatos[*qtd].email, sizeof(contatos[*qtd].email), stdin);
+    contatos[*qtd].email[strcspn(contatos[*qtd].email, "\n")] = '\0';
+
+    (*qtd)++;
+    printf("Contato adicionado com sucesso!\n\n");
+}
+
+void listarContatos(Contato contatos[], int qtd) {
+    if (qtd == 0) {
+        printf("Nenhum contato cadastrado.\n\n");
+        return;
+    }
+
+    printf("\nLista de Contatos:\n");
+    for (int i = 0; i < qtd; i++) {
+        printf("Contato %d:\n", i + 1);
+        printf("Nome: %s\n", contatos[i].nome);
+        printf("Telefone: %s\n", contatos[i].telefone);
+        printf("Email: %s\n\n", contatos[i].email);
+    }
+}
+
+int main() {
+    Contato contatos[MAX_CONTATOS];
+    int qtdContatos = 0;
+    int opcao;
+
+    do {
+        printf("---- Agenda de Contatos ----\n");
+        printf("1. Adicionar contato\n");
+        printf("2. Listar contatos\n");
+        printf("3. Sair\n");
+        printf("Escolha uma opção: ");
+        scanf("%d", &opcao);
+        getchar(); // limpar o '\n' do buffer após scanf
+
+        switch(opcao) {
+            case 1:
+                adicionarContato(contatos, &qtdContatos);
+                break;
+            case 2:
+                listarContatos(contatos, qtdContatos);
+                break;
+            case 3:
+                printf("Saindo do programa. Até mais!\n");
+                break;
+            default:
+                printf("Opção inválida! Tente novamente.\n\n");
+        }
+
+    } while(opcao != 3);
+
+    return 0;
+}
+
+
+//4. Sistema Bancário Simplificado
+
+Crie uma struct Cliente com os campos: conta (int), nome (string) e saldo (float).
+Implemente funções para:
+Depositar: recebe um cliente e um valor, atualizando o saldo.
+Sacar: verifica se há saldo suficiente antes de deduzir o valor.
+No main, simule operações de depósito e saque, exibindo o saldo após cada operação.
+
+#include <stdio.h>
+#include <string.h>
+
+typedef struct {
+    int conta;
+    char nome[100];
+    float saldo;
+} Cliente;
+
+// Função para depositar
+void depositar(Cliente *cliente, float valor) {
+    if (valor <= 0) {
+        printf("Valor inválido para depósito.\n");
+        return;
+    }
+    cliente->saldo += valor;
+    printf("Depósito de R$ %.2f realizado com sucesso.\n", valor);
+}
+
+// Função para sacar
+void sacar(Cliente *cliente, float valor) {
+    if (valor <= 0) {
+        printf("Valor inválido para saque.\n");
+        return;
+    }
+    if (cliente->saldo >= valor) {
+        cliente->saldo -= valor;
+        printf("Saque de R$ %.2f realizado com sucesso.\n", valor);
+    } else {
+        printf("Saldo insuficiente para saque de R$ %.2f.\n", valor);
+    }
+}
+
+int main() {
+    Cliente cliente;
+
+    // Cadastro inicial
+    printf("Digite o número da conta: ");
+    scanf("%d", &cliente.conta);
+    getchar(); // limpar buffer
+
+    printf("Digite o nome do cliente: ");
+    fgets(cliente.nome, sizeof(cliente.nome), stdin);
+    cliente.nome[strcspn(cliente.nome, "\n")] = '\0';
+
+    cliente.saldo = 0.0f;
+
+    printf("\nConta criada para %s (Conta nº %d) com saldo inicial de R$ %.2f\n\n",
+        cliente.nome, cliente.conta, cliente.saldo);
+
+    // Simular operações
+    depositar(&cliente, 500.0f);
+    printf("Saldo atual: R$ %.2f\n\n", cliente.saldo);
+
+    sacar(&cliente, 200.0f);
+    printf("Saldo atual: R$ %.2f\n\n", cliente.saldo);
+
+    sacar(&cliente, 400.0f); // Tentativa de saque maior que saldo
+    printf("Saldo atual: R$ %.2f\n\n", cliente.saldo);
+
+    depositar(&cliente, -50); // Depósito inválido
+    printf("Saldo atual: R$ %.2f\n\n", cliente.saldo);
+
+    return 0;
+}
+
+
+
+
+
+
+
