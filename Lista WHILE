@@ -32,6 +32,577 @@ int main(){
      
    }
 
+
+Contagem regressiva:
+Peça um número inteiro positivo e faça uma contagem regressiva até zero usando while.
+
+Soma de números positivos:
+Leia números do usuário até que ele digite um número negativo. Some e mostre a soma dos números positivos digitados.
+
+Menu de operações matemáticas:
+Crie um menu usando switch-case com opções: somar, subtrair, multiplicar e dividir dois números. O menu deve se repetir até o usuário escolher sair.
+
+Senha de acesso:
+Peça uma senha (ex.: 1234). Enquanto a senha estiver incorreta, continue pedindo. Quando acertar, mostre “Acesso permitido”.
+
+Validação de nota:
+Leia uma nota de 0 a 10. Enquanto for inválida, peça novamente. Ao receber uma nota válida, mostre “Nota registrada”.
+
+Cálculo de média com escolha:
+Peça várias notas. Após cada nota, pergunte se deseja adicionar outra (s/n) usando operador ternário. Calcule a média no final.
+
+Número primo:
+Peça um número inteiro e use while para verificar se é primo.
+
+
+
+#include <stdio.h>
+
+int main() {
+    int num;
+    printf("Digite um número inteiro positivo: ");
+    scanf("%d", &num);
+
+    while (num >= 0) {
+        printf("%d\n", num);
+        num--;
+    }
+
+    return 0;
+}
+
+
+#include <stdio.h>
+
+int main() {
+    int num, soma = 0;
+
+    printf("Digite números positivos (número negativo para parar):\n");
+
+    while (1) {
+        scanf("%d", &num);
+        if (num < 0)
+            break;
+        soma += num;
+    }
+
+    printf("Soma dos números positivos: %d\n", soma);
+    return 0;
+}
+
+
+#include <stdio.h>
+
+int main() {
+    int opcao;
+    float a, b;
+
+    do {
+        printf("\nMenu:\n");
+        printf("1 - Somar\n");
+        printf("2 - Subtrair\n");
+        printf("3 - Multiplicar\n");
+        printf("4 - Dividir\n");
+        printf("0 - Sair\n");
+        printf("Escolha uma opção: ");
+        scanf("%d", &opcao);
+
+        if (opcao >= 1 && opcao <= 4) {
+            printf("Digite dois números: ");
+            scanf("%f %f", &a, &b);
+        }
+
+        switch (opcao) {
+            case 1: printf("Resultado: %.2f\n", a + b); break;
+            case 2: printf("Resultado: %.2f\n", a - b); break;
+            case 3: printf("Resultado: %.2f\n", a * b); break;
+            case 4:
+                if (b != 0)
+                    printf("Resultado: %.2f\n", a / b);
+                else
+                    printf("Divisão por zero não permitida.\n");
+                break;
+            case 0: printf("Saindo...\n"); break;
+            default: printf("Opção inválida.\n");
+        }
+
+    } while (opcao != 0);
+
+    return 0;
+}
+
+
+#include <stdio.h>
+
+int main() {
+    int senha;
+    do {
+        printf("Digite a senha: ");
+        scanf("%d", &senha);
+        if (senha != 1234)
+            printf("Senha incorreta.\n");
+    } while (senha != 1234);
+
+    printf("Acesso permitido.\n");
+    return 0;
+}
+
+
+#include <stdio.h>
+
+int main() {
+    float nota;
+
+    do {
+        printf("Digite uma nota entre 0 e 10: ");
+        scanf("%f", &nota);
+    } while (nota < 0 || nota > 10);
+
+    printf("Nota registrada: %.2f\n", nota);
+    return 0;
+}
+
+
+#include <stdio.h>
+
+int main() {
+    float nota, soma = 0;
+    int count = 0;
+    char opcao;
+
+    do {
+        printf("Digite uma nota: ");
+        scanf("%f", &nota);
+        soma += nota;
+        count++;
+
+        printf("Deseja inserir outra nota? (s/n): ");
+        scanf(" %c", &opcao);  // espaço antes do %c limpa o buffer
+    } while (opcao == 's' || opcao == 'S');
+
+    float media = (count > 0) ? (soma / count) : 0;
+
+    printf("Média das notas: %.2f\n", media);
+    return 0;
+}
+
+
+#include <stdio.h>
+
+int main() {
+    int num, i = 2, ehPrimo = 1;
+
+    printf("Digite um número inteiro: ");
+    scanf("%d", &num);
+
+    if (num <= 1) {
+        ehPrimo = 0;
+    } else {
+        while (i <= num / 2) {
+            if (num % i == 0) {
+                ehPrimo = 0;
+                break;
+            }
+            i++;
+        }
+    }
+
+    if (ehPrimo)
+        printf("%d é primo.\n", num);
+    else
+        printf("%d não é primo.\n", num);
+
+    return 0;
+}
+
+
+Par ou ímpar:
+Peça números até que o usuário digite zero. Para cada número, informe se é par ou ímpar usando o operador ternário.
+
+Saque de caixa eletrônico:
+Simule saques. Peça o valor (múltiplo de 10 até 1000) e informe quantas notas de 100, 50, 20 e 10 são necessárias. Use switch para perguntar se deseja fazer outro saque.
+
+Jogo de adivinhação:
+O programa escolhe um número entre 1 e 100. O usuário tenta adivinhar. Informe se o palpite é maior ou menor, até acertar.
+
+Tabuada:
+Peça um número e mostre sua tabuada de 1 a 10 usando while. Após isso, pergunte se quer ver outra tabuada (s/n).
+
+Calculadora de fatorial:
+Peça um número inteiro não-negativo e calcule seu fatorial usando while.
+
+Contagem de pares e ímpares:
+Peça números até que o usuário digite -1. No final, mostre quantos números pares e ímpares foram digitados.
+
+Menu de conversões:
+Menu com opções: converter Celsius para Fahrenheit, Fahrenheit para Celsius e sair. Use switch-case e while.
+
+
+#include <stdio.h>
+
+int main() {
+    int num;
+
+    do {
+        printf("Digite um número (0 para sair): ");
+        scanf("%d", &num);
+        if (num != 0)
+            (num % 2 == 0) ? printf("Par\n") : printf("Ímpar\n");
+    } while (num != 0);
+
+    return 0;
+}
+
+
+#include <stdio.h>
+
+int main() {
+    int valor, notas100, notas50, notas20, notas10;
+    char opcao;
+
+    do {
+        printf("Digite o valor para saque (múltiplo de 10 até 1000): ");
+        scanf("%d", &valor);
+
+        if (valor >= 10 && valor <= 1000 && valor % 10 == 0) {
+            notas100 = valor / 100;
+            valor %= 100;
+            notas50 = valor / 50;
+            valor %= 50;
+            notas20 = valor / 20;
+            valor %= 20;
+            notas10 = valor / 10;
+
+            printf("Notas de 100: %d\n", notas100);
+            printf("Notas de 50 : %d\n", notas50);
+            printf("Notas de 20 : %d\n", notas20);
+            printf("Notas de 10 : %d\n", notas10);
+        } else {
+            printf("Valor inválido.\n");
+        }
+
+        printf("Deseja fazer outro saque? (s/n): ");
+        scanf(" %c", &opcao);
+
+        switch(opcao) {
+            case 'n':
+            case 'N':
+                printf("Encerrando...\n");
+                break;
+            case 's':
+            case 'S':
+                break;
+            default:
+                printf("Opção inválida, encerrando.\n");
+                opcao = 'n';
+        }
+    } while (opcao == 's' || opcao == 'S');
+
+    return 0;
+}
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    int numero_secreto, palpite;
+
+    srand(time(NULL));  // semente para aleatoriedade
+    numero_secreto = rand() % 100 + 1;
+
+    do {
+        printf("Tente adivinhar o número (1 a 100): ");
+        scanf("%d", &palpite);
+
+        if (palpite < numero_secreto)
+            printf("Muito baixo!\n");
+        else if (palpite > numero_secreto)
+            printf("Muito alto!\n");
+        else
+            printf("Parabéns! Você acertou!\n");
+
+    } while (palpite != numero_secreto);
+
+    return 0;
+}
+
+
+#include <stdio.h>
+
+int main() {
+    int num, i;
+    char opcao;
+
+    do {
+        printf("Digite um número para ver a tabuada: ");
+        scanf("%d", &num);
+
+        i = 1;
+        while (i <= 10) {
+            printf("%d x %d = %d\n", num, i, num * i);
+            i++;
+        }
+
+        printf("Deseja ver outra tabuada? (s/n): ");
+        scanf(" %c", &opcao);
+    } while (opcao == 's' || opcao == 'S');
+
+    return 0;
+}
+
+
+#include <stdio.h>
+
+int main() {
+    int num, i = 1, fat = 1;
+
+    printf("Digite um número inteiro não-negativo: ");
+    scanf("%d", &num);
+
+    if (num < 0) {
+        printf("Número inválido.\n");
+        return 1;
+    }
+
+    while (i <= num) {
+        fat *= i;
+        i++;
+    }
+
+    printf("Fatorial de %d é %d\n", num, fat);
+    return 0;
+}
+
+
+#include <stdio.h>
+
+int main() {
+    int num, pares = 0, impares = 0;
+
+    printf("Digite números inteiros (-1 para sair):\n");
+
+    while (1) {
+        scanf("%d", &num);
+        if (num == -1)
+            break;
+
+        if (num % 2 == 0)
+            pares++;
+        else
+            impares++;
+    }
+
+    printf("Pares: %d\n", pares);
+    printf("Ímpares: %d\n", impares);
+
+    return 0;
+}
+
+
+#include <stdio.h>
+
+int main() {
+    int opcao;
+    float temp;
+
+    do {
+        printf("\nMenu de conversões:\n");
+        printf("1 - Celsius para Fahrenheit\n");
+        printf("2 - Fahrenheit para Celsius\n");
+        printf("0 - Sair\n");
+        printf("Escolha uma opção: ");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1:
+                printf("Digite a temperatura em Celsius: ");
+                scanf("%f", &temp);
+                printf("Fahrenheit: %.2f\n", temp * 9/5 + 32);
+                break;
+            case 2:
+                printf("Digite a temperatura em Fahrenheit: ");
+                scanf("%f", &temp);
+                printf("Celsius: %.2f\n", (temp - 32) * 5/9);
+                break;
+            case 0:
+                printf("Saindo...\n");
+                break;
+            default:
+                printf("Opção inválida!\n");
+        }
+    } while (opcao != 0);
+
+    return 0;
+}
+
+
+Controle de estoque:
+Simule um estoque. Permita cadastrar entrada e saída de produtos e consulte a quantidade atual. Use menu com switch.
+
+Calculadora com operador ternário:
+Peça dois números e uma operação (+, -, *, /). Faça o cálculo usando if-else ou operador ternário. Permita repetir.
+
+Validação de idade:
+Peça uma idade até que seja um valor entre 0 e 120. Mostre “Idade válida” ao final.
+
+Sequência de Fibonacci:
+Peça um número N e mostre os N primeiros números da sequência de Fibonacci usando while.
+
+Soma dos dígitos:
+Peça um número inteiro e calcule a soma dos seus dígitos. Ex.: 538 → 5 + 3 + 8 = 16.
+
+Caixa registradora:
+Permita registrar o valor de vários produtos até que o usuário digite 0. Ao final, mostre o total a pagar.
+
+#include <stdio.h>
+
+int main() {
+    int estoque = 0, opcao, qtd;
+
+    do {
+        printf("\n=== MENU ESTOQUE ===\n");
+        printf("1 - Entrada de produtos\n");
+        printf("2 - Saída de produtos\n");
+        printf("3 - Consultar estoque\n");
+        printf("0 - Sair\n");
+        printf("Escolha: ");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1:
+                printf("Quantidade a adicionar: ");
+                scanf("%d", &qtd);
+                estoque += qtd;
+                break;
+            case 2:
+                printf("Quantidade a remover: ");
+                scanf("%d", &qtd);
+                if (qtd <= estoque)
+                    estoque -= qtd;
+                else
+                    printf("Quantidade insuficiente em estoque.\n");
+                break;
+            case 3:
+                printf("Estoque atual: %d\n", estoque);
+                break;
+            case 0:
+                printf("Encerrando...\n");
+                break;
+            default:
+                printf("Opção inválida.\n");
+        }
+    } while (opcao != 0);
+
+    return 0;
+}
+
+
+#include <stdio.h>
+
+int main() {
+    float a, b, resultado;
+    char op, repetir;
+
+    do {
+        printf("Digite dois números: ");
+        scanf("%f %f", &a, &b);
+        printf("Escolha a operação (+, -, *, /): ");
+        scanf(" %c", &op);
+
+        (op == '+') ? (resultado = a + b) :
+        (op == '-') ? (resultado = a - b) :
+        (op == '*') ? (resultado = a * b) :
+        (op == '/' && b != 0) ? (resultado = a / b) :
+        (resultado = 0);
+
+        if (op == '/' && b == 0)
+            printf("Erro: divisão por zero.\n");
+        else
+            printf("Resultado: %.2f\n", resultado);
+
+        printf("Deseja calcular novamente? (s/n): ");
+        scanf(" %c", &repetir);
+    } while (repetir == 's' || repetir == 'S');
+
+    return 0;
+}
+
+
+#include <stdio.h>
+
+int main() {
+    int idade;
+
+    do {
+        printf("Digite a idade (0 a 120): ");
+        scanf("%d", &idade);
+    } while (idade < 0 || idade > 120);
+
+    printf("Idade válida!\n");
+    return 0;
+}
+
+
+#include <stdio.h>
+
+int main() {
+    int N, a = 0, b = 1, proximo, i = 1;
+
+    printf("Digite quantos termos da série de Fibonacci deseja ver: ");
+    scanf("%d", &N);
+
+    printf("Fibonacci: ");
+    while (i <= N) {
+        printf("%d ", a);
+        proximo = a + b;
+        a = b;
+        b = proximo;
+        i++;
+    }
+    printf("\n");
+
+    return 0;
+}
+
+
+#include <stdio.h>
+
+int main() {
+    int num, soma = 0;
+
+    printf("Digite um número inteiro: ");
+    scanf("%d", &num);
+
+    while (num != 0) {
+        soma += num % 10;
+        num /= 10;
+    }
+
+    printf("Soma dos dígitos: %d\n", soma);
+    return 0;
+}
+
+
+#include <stdio.h>
+
+int main() {
+    float preco, total = 0;
+
+    printf("Digite o valor dos produtos (0 para encerrar):\n");
+
+    do {
+        printf("Produto: R$ ");
+        scanf("%f", &preco);
+        total += preco;
+    } while (preco != 0);
+
+    printf("Total a pagar: R$ %.2f\n", total);
+    return 0;
+}
+
+
    printf("Soma final:%d\n",soma);
 
   return 0;
