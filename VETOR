@@ -1,0 +1,530 @@
+1)Soma de Elementos
+
+Entrada: Um vetor de 5 números inteiros.
+Saída: A soma de todos os elementos do vetor.
+
+2)Maior Elemento
+
+Entrada: Um vetor de 10 números inteiros.
+Saída: O maior valor presente no vetor.
+
+3)Média Aritmética
+
+Entrada: Um vetor de 8 números.
+Saída: A média dos valores do vetor.
+
+4)Contagem de Pares
+
+Entrada: Um vetor de 6 números inteiros.
+Saída: A quantidade de números pares no vetor.
+
+5)Inversão de Vetor
+
+Entrada: Um vetor de 7 números inteiros.
+Saída: O mesmo vetor, mas com os elementos na ordem inversa.
+
+6)Busca por Elemento
+
+Entrada: Um vetor de 10 números e um valor x a ser buscado.
+Saída: A posição de x no vetor (ou -1 se não existir).
+
+7)Substituição de Valores
+
+Entrada: Um vetor de 9 números inteiros e um valor k.
+Saída: O vetor com todos os elementos iguais a k substituídos por zero.
+
+8)Verificação de Ordem Crescente
+
+Entrada: Um vetor de 5 números inteiros.
+Saída: 1 se o vetor estiver em ordem crescente, 0 caso contrário.
+
+9)Fusão de Dois Vetores
+
+Entrada: Dois vetores de 5 elementos cada, já ordenados.
+Saída: Um único vetor de 10 elementos, resultante da fusão ordenada.
+
+10)Remoção de Duplicatas
+
+Entrada: Um vetor de 10 números inteiros (possivelmente com repetições).
+Saída: O vetor sem elementos duplicados (apenas a primeira ocorrência de cada).
+
+11)Rotação à Direita
+
+Entrada: Um vetor de 8 números e um inteiro k (número de rotações).
+Saída: O vetor rotacionado k vezes para a direita.
+
+12)Soma de Dois Vetores
+
+Entrada: Dois vetores de 4 números reais cada.
+Saída: Um vetor resultante da soma elemento a elemento.
+
+13)Produto Escalar
+
+Entrada: Dois vetores de 3 números reais cada.
+Saída: O produto escalar entre os dois vetores.
+
+14)Maior Subsequência Crescente
+
+Entrada: Um vetor de 10 números inteiros.
+Saída: O comprimento da maior subsequência crescente contígua.
+
+15)Contagem de Frequência
+
+Entrada: Um vetor de 15 números inteiros (valores entre 0 e 9).
+Saída: A frequência de cada número no vetor (em um vetor de contagem).
+
+16)Separar Pares e Ímpares
+
+Entrada: Um vetor de 12 números inteiros.
+Saída: Dois vetores, um com os pares e outro com os ímpares.
+
+17)Ordenação (Implementação Manual)
+
+Entrada: Um vetor de 10 números desordenados.
+Saída: O vetor ordenado usando o algoritmo de inserção.
+
+
+18)Maior Soma de Subvetor (Kadane’s Algorithm)
+
+Entrada: Um vetor de 12 números inteiros (possivelmente negativos).
+Saída: A maior soma de um subvetor contíguo.
+
+
+  #include <stdio.h>
+
+int main() {
+    int vetor[5], soma = 0;
+    printf("Digite 5 números inteiros:\n");
+    for(int i = 0; i < 5; i++) {
+        scanf("%d", &vetor[i]);
+        soma += vetor[i];
+    }
+    printf("Soma dos elementos: %d\n", soma);
+    return 0;
+}
+
+
+  #include <stdio.h>
+
+int main() {
+    int vetor[10], maior;
+    printf("Digite 10 números inteiros:\n");
+    for(int i = 0; i < 10; i++) {
+        scanf("%d", &vetor[i]);
+    }
+    maior = vetor[0];
+    for(int i = 1; i < 10; i++) {
+        if(vetor[i] > maior)
+            maior = vetor[i];
+    }
+    printf("Maior valor: %d\n", maior);
+    return 0;
+}
+
+
+
+  #include <stdio.h>
+
+int main() {
+    float vetor[8], soma = 0;
+    printf("Digite 8 números:\n");
+    for(int i = 0; i < 8; i++) {
+        scanf("%f", &vetor[i]);
+        soma += vetor[i];
+    }
+    printf("Média aritmética: %.2f\n", soma / 8);
+    return 0;
+}
+
+
+
+
+  #include <stdio.h>
+
+int main() {
+    int vetor[6], count_pares = 0;
+    printf("Digite 6 números inteiros:\n");
+    for(int i = 0; i < 6; i++) {
+        scanf("%d", &vetor[i]);
+        if (vetor[i] % 2 == 0)
+            count_pares++;
+    }
+    printf("Quantidade de números pares: %d\n", count_pares);
+    return 0;
+}
+
+
+
+
+
+  #include <stdio.h>
+
+int main() {
+    int vetor[7], inverso[7];
+    printf("Digite 7 números inteiros:\n");
+    for(int i = 0; i < 7; i++) {
+        scanf("%d", &vetor[i]);
+    }
+    for(int i = 0; i < 7; i++) {
+        inverso[i] = vetor[6 - i];
+    }
+    printf("Vetor invertido:\n");
+    for(int i = 0; i < 7; i++) {
+        printf("%d ", inverso[i]);
+    }
+    printf("\n");
+    return 0;
+}
+
+
+
+
+  #include <stdio.h>
+
+int main() {
+    int vetor[10], x, pos = -1;
+    printf("Digite 10 números inteiros:\n");
+    for(int i = 0; i < 10; i++) {
+        scanf("%d", &vetor[i]);
+    }
+    printf("Digite o valor a buscar: ");
+    scanf("%d", &x);
+
+    for(int i = 0; i < 10; i++) {
+        if(vetor[i] == x) {
+            pos = i; // primeira ocorrência
+            break;
+        }
+    }
+
+    printf("Posição de %d no vetor: %d\n", x, pos);
+    return 0;
+}
+
+
+      #include <stdio.h>
+
+int main() {
+    int vetor[9], k;
+    printf("Digite 9 números inteiros:\n");
+    for(int i = 0; i < 9; i++) {
+        scanf("%d", &vetor[i]);
+    }
+    printf("Digite o valor k para substituir por zero: ");
+    scanf("%d", &k);
+
+    for(int i = 0; i < 9; i++) {
+        if(vetor[i] == k) {
+            vetor[i] = 0;
+        }
+    }
+
+    printf("Vetor após substituição:\n");
+    for(int i = 0; i < 9; i++) {
+        printf("%d ", vetor[i]);
+    }
+    printf("\n");
+    return 0;
+}
+
+
+
+      #include <stdio.h>
+
+int main() {
+    int vetor[5], crescente = 1;
+    printf("Digite 5 números inteiros:\n");
+    for(int i = 0; i < 5; i++) {
+        scanf("%d", &vetor[i]);
+    }
+
+    for(int i = 0; i < 4; i++) {
+        if(vetor[i] > vetor[i+1]) {
+            crescente = 0;
+            break;
+        }
+    }
+
+    printf("%d\n", crescente);
+    return 0;
+}
+
+
+
+      #include <stdio.h>
+
+int main() {
+    int v1[5], v2[5], fusao[10];
+    printf("Digite 5 números ordenados para o vetor 1:\n");
+    for(int i = 0; i < 5; i++) {
+        scanf("%d", &v1[i]);
+    }
+    printf("Digite 5 números ordenados para o vetor 2:\n");
+    for(int i = 0; i < 5; i++) {
+        scanf("%d", &v2[i]);
+    }
+
+    int i=0, j=0, k=0;
+    while(i < 5 && j < 5) {
+        if(v1[i] <= v2[j]) {
+            fusao[k++] = v1[i++];
+        } else {
+            fusao[k++] = v2[j++];
+        }
+    }
+    while(i < 5) fusao[k++] = v1[i++];
+    while(j < 5) fusao[k++] = v2[j++];
+
+    printf("Vetor fusionado:\n");
+    for(int x = 0; x < 10; x++) {
+        printf("%d ", fusao[x]);
+    }
+    printf("\n");
+    return 0;
+}
+
+
+      #include <stdio.h>
+
+int main() {
+    int vetor[10], resultado[10], tam = 0;
+    int repetido;
+
+    printf("Digite 10 números inteiros:\n");
+    for(int i = 0; i < 10; i++) {
+        scanf("%d", &vetor[i]);
+    }
+
+    for(int i = 0; i < 10; i++) {
+        repetido = 0;
+        for(int j = 0; j < tam; j++) {
+            if(vetor[i] == resultado[j]) {
+                repetido = 1;
+                break;
+            }
+        }
+        if(!repetido) {
+            resultado[tam++] = vetor[i];
+        }
+    }
+
+    printf("Vetor sem duplicatas:\n");
+    for(int i = 0; i < tam; i++) {
+        printf("%d ", resultado[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+
+
+          #include <stdio.h>
+
+int main() {
+    int vetor[8], k, temp[8];
+    printf("Digite 8 números:\n");
+    for(int i = 0; i < 8; i++) {
+        scanf("%d", &vetor[i]);
+    }
+    printf("Digite o número de rotações para a direita: ");
+    scanf("%d", &k);
+
+    k = k % 8; // para evitar rotações além do tamanho
+
+    for(int i = 0; i < 8; i++) {
+        temp[(i + k) % 8] = vetor[i];
+    }
+
+    printf("Vetor após rotação:\n");
+    for(int i = 0; i < 8; i++) {
+        printf("%d ", temp[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+
+
+
+          #include <stdio.h>
+
+int main() {
+    float v1[4], v2[4], soma[4];
+    printf("Digite 4 números reais para o vetor 1:\n");
+    for(int i = 0; i < 4; i++) {
+        scanf("%f", &v1[i]);
+    }
+    printf("Digite 4 números reais para o vetor 2:\n");
+    for(int i = 0; i < 4; i++) {
+        scanf("%f", &v2[i]);
+    }
+
+    for(int i = 0; i < 4; i++) {
+        soma[i] = v1[i] + v2[i];
+    }
+
+    printf("Vetor soma:\n");
+    for(int i = 0; i < 4; i++) {
+        printf("%.2f ", soma[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+
+          #include <stdio.h>
+
+int main() {
+    float v1[3], v2[3], produto = 0;
+    printf("Digite 3 números reais para o vetor 1:\n");
+    for(int i = 0; i < 3; i++) {
+        scanf("%f", &v1[i]);
+    }
+    printf("Digite 3 números reais para o vetor 2:\n");
+    for(int i = 0; i < 3; i++) {
+        scanf("%f", &v2[i]);
+    }
+
+    for(int i = 0; i < 3; i++) {
+        produto += v1[i] * v2[i];
+    }
+
+    printf("Produto escalar: %.2f\n", produto);
+    return 0;
+}
+
+
+          #include <stdio.h>
+
+int main() {
+    int vetor[10];
+    printf("Digite 10 números inteiros:\n");
+    for(int i = 0; i < 10; i++) {
+        scanf("%d", &vetor[i]);
+    }
+
+    int maior = 1, atual = 1;
+    for(int i = 1; i < 10; i++) {
+        if(vetor[i] > vetor[i-1]) {
+            atual++;
+        } else {
+            if(atual > maior) maior = atual;
+            atual = 1;
+        }
+    }
+    if(atual > maior) maior = atual;
+
+    printf("Maior subsequência crescente contígua: %d\n", maior);
+    return 0;
+}
+
+
+      #include <stdio.h>
+
+int main() {
+    int vetor[15], freq[10] = {0};
+    printf("Digite 15 números inteiros entre 0 e 9:\n");
+    for(int i = 0; i < 15; i++) {
+        scanf("%d", &vetor[i]);
+        if(vetor[i] >=0 && vetor[i] <=9)
+            freq[vetor[i]]++;
+    }
+
+    printf("Frequência dos números:\n");
+    for(int i = 0; i < 10; i++) {
+        printf("%d: %d vezes\n", i, freq[i]);
+    }
+    return 0;
+}
+
+
+      #include <stdio.h>
+
+int main() {
+    int vetor[12], pares[12], impares[12];
+    int p = 0, imp = 0;
+
+    printf("Digite 12 números inteiros:\n");
+    for(int i = 0; i < 12; i++) {
+        scanf("%d", &vetor[i]);
+        if(vetor[i] % 2 == 0)
+            pares[p++] = vetor[i];
+        else
+            impares[imp++] = vetor[i];
+    }
+
+    printf("Números pares:\n");
+    for(int i = 0; i < p; i++) {
+        printf("%d ", pares[i]);
+    }
+    printf("\nNúmeros ímpares:\n");
+    for(int i = 0; i < imp; i++) {
+        printf("%d ", impares[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+
+      #include <stdio.h>
+
+int main() {
+    int vetor[10], chave, j;
+
+    printf("Digite 10 números desordenados:\n");
+    for(int i = 0; i < 10; i++) {
+        scanf("%d", &vetor[i]);
+    }
+
+    for(int i = 1; i < 10; i++) {
+        chave = vetor[i];
+        j = i - 1;
+        while(j >= 0 && vetor[j] > chave) {
+            vetor[j+1] = vetor[j];
+            j--;
+        }
+        vetor[j+1] = chave;
+    }
+
+    printf("Vetor ordenado:\n");
+    for(int i = 0; i < 10; i++) {
+        printf("%d ", vetor[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+
+      #include <stdio.h>
+
+int main() {
+    int vetor[12];
+    printf("Digite 12 números inteiros (podem ser negativos):\n");
+    for(int i = 0; i < 12; i++) {
+        scanf("%d", &vetor[i]);
+    }
+
+    int max_ate_agora = vetor[0];
+    int max_terminando_aqui = vetor[0];
+
+    for(int i = 1; i < 12; i++) {
+        if (max_terminando_aqui < 0)
+            max_terminando_aqui = vetor[i];
+        else
+            max_terminando_aqui += vetor[i];
+
+        if (max_terminando_aqui > max_ate_agora)
+            max_ate_agora = max_terminando_aqui;
+    }
+
+    printf("Maior soma de subvetor contíguo: %d\n", max_ate_agora);
+
+    return 0;
+}
+
+
