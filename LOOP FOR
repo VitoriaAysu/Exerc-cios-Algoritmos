@@ -1,0 +1,278 @@
+1) Faça um software que imprime a soma de todos os números entre 0 a 10;
+#include <stdio.h>
+
+int main() {
+    int soma = 0;
+
+    for (int i = 0; i <= 10; i++) {
+        soma += i;
+    }
+
+    printf("A soma dos números de 0 a 10 é: %d\n", soma);
+
+    return 0;
+}
+
+Escreva um programa que pergunta um número ao usuário, e mostra sua tabuada completa (de 1 até 10);
+#include <stdio.h>
+
+int main() {
+    int num;
+
+    printf("Digite um número inteiro: ");
+    scanf("%d", &num);
+
+    printf("Tabuada do %d:\n", num);
+    for (int i = 1; i <= 10; i++) {
+        printf("%d x %d = %d\n", num, i, num * i);
+    }
+
+    return 0;
+}
+Faça um software que faça uma contagem regressiva entre 100 e 0, por um intervalo que o usuário vá informar;
+#include <stdio.h>
+
+int main() {
+    int intervalo;
+
+    printf("Digite o intervalo para a contagem regressiva: ");
+    scanf("%d", &intervalo);
+
+    if (intervalo <= 0) {
+        printf("Intervalo inválido! Deve ser maior que zero.\n");
+        return 1;
+    }
+
+    printf("Contagem regressiva de 100 até 0, com intervalo de %d:\n", intervalo);
+    for (int i = 100; i >= 0; i -= intervalo) {
+        printf("%d\n", i);
+    }
+
+    return 0;
+}
+
+Faça um software que peça 10 valores ao usuário e imprima no final o maior;
+#include <stdio.h>
+
+int main() {
+    int valor, maior;
+    
+    printf("Digite 10 valores inteiros:\n");
+
+    for (int i = 0; i < 10; i++) {
+        printf("Valor %d: ", i + 1);
+        scanf("%d", &valor);
+
+        if (i == 0 || valor > maior) {
+            maior = valor;
+        }
+    }
+
+    printf("\nO maior valor digitado foi: %d\n", maior);
+
+    return 0;
+}
+
+Faça um programa em C que receba a idade de 10 pessoas e mostre quantas são maiores que 18 anos.
+#include <stdio.h>
+
+int main() {
+    int idade, count_maiores = 0;
+
+    printf("Digite a idade de 10 pessoas:\n");
+
+    for (int i = 0; i < 10; i++) {
+        printf("Idade da pessoa %d: ", i + 1);
+        scanf("%d", &idade);
+
+        if (idade > 18) {
+            count_maiores++;
+        }
+    }
+
+    printf("\nNúmero de pessoas maiores que 18 anos: %d\n", count_maiores);
+
+    return 0;
+}
+
+6)A música dos patinhos da Xuxa que tem o seguinte formato:
+5 patinhos foram passear
+Além das montanhas
+Para brincar
+A mamãe gritou: Quá, quá, quá, quá
+Mas só 4 patinhos voltaram de lá
+Faça um software que pergunte ao usuário quantos patinhos a mamãe pato tem, e que a música se repita até acabarem os patinhos e então exibir o final da música:
+A mamãe patinha foi procurar
+Além das montanhas, na beira do mar
+A mamãe gritou: Quá, quá, quá, quá!
+E os cinco patinhos voltaram de lá
+#include <stdio.h>
+
+int main() {
+    int patinhos;
+
+    printf("Quantos patinhos a mamãe pato tem? ");
+    scanf("%d", &patinhos);
+
+    while (patinhos > 0) {
+        printf("\n%d patinhos foram passear\n", patinhos);
+        printf("Além das montanhas\n");
+        printf("Para brincar\n");
+        printf("A mamãe gritou: Quá, quá, quá, quá\n");
+        printf("Mas só %d patinhos voltaram de lá\n", patinhos - 1);
+
+        patinhos--;
+    }
+
+    printf("\nA mamãe patinha foi procurar\n");
+    printf("Além das montanhas, na beira do mar\n");
+    printf("A mamãe gritou: Quá, quá, quá, quá!\n");
+    printf("E os %d patinhos voltaram de lá\n", patinhos + 5);
+
+    return 0;
+}
+
+
+#include <stdio.h>
+
+int main() {
+    int patinhos, original;
+
+    printf("Quantos patinhos a mamãe pato tem? ");
+    scanf("%d", &patinhos);
+
+    original = patinhos;  // salva o valor inicial para usar no final
+
+    while (patinhos > 0) {
+        printf("\n%d %s foram passear\n", patinhos, (patinhos == 1) ? "patinho" : "patinhos");
+        printf("Além das montanhas\n");
+        printf("Para brincar\n");
+        printf("A mamãe gritou: Quá, quá, quá, quá\n");
+
+        int voltaram = patinhos - 1;
+        printf("Mas só %d %s voltaram de lá\n", voltaram, (voltaram == 1) ? "patinho" : "patinhos");
+
+        patinhos--;
+    }
+
+    printf("\nA mamãe patinha foi procurar\n");
+    printf("Além das montanhas, na beira do mar\n");
+    printf("A mamãe gritou: Quá, quá, quá, quá!\n");
+    printf("E os %d %s voltaram de lá\n", original, (original == 1) ? "patinho" : "patinhos");
+
+    return 0;
+}
+
+
+
+Leia 2 valores inteiros X e Y. A seguir, calcule e mostre a soma dos números impares entre eles.
+#include <stdio.h>
+
+int main() {
+    int X, Y, inicio, fim, soma = 0;
+
+    printf("Digite o valor de X: ");
+    scanf("%d", &X);
+    printf("Digite o valor de Y: ");
+    scanf("%d", &Y);
+
+    // Definir início e fim para o intervalo correto
+    if (X < Y) {
+        inicio = X + 1;
+        fim = Y - 1;
+    } else {
+        inicio = Y + 1;
+        fim = X - 1;
+    }
+
+    for (int i = inicio; i <= fim; i++) {
+        if (i % 2 != 0) {  // verifica se é ímpar
+            soma += i;
+        }
+    }
+
+    printf("Soma dos números ímpares entre %d e %d: %d\n", X, Y, soma);
+
+    return 0;
+}
+
+
+
+Crie um programa que leia um número N e exiba os N primeiros termos da série de Fibonacci.
+#include <stdio.h>
+
+int main() {
+    int N;
+    printf("Digite quantos termos da série de Fibonacci deseja exibir: ");
+    scanf("%d", &N);
+
+    int a = 0, b = 1, proximo;
+
+    printf("Série de Fibonacci com %d termos:\n", N);
+
+    for (int i = 1; i <= N; i++) {
+        if (i == 1) {
+            printf("%d ", a);
+        } else if (i == 2) {
+            printf("%d ", b);
+        } else {
+            proximo = a + b;
+            printf("%d ", proximo);
+            a = b;
+            b = proximo;
+        }
+    }
+
+Escreva um programa que leia 10 notas de alunos e calcule a média.
+#include <stdio.h>
+
+int main() {
+    float nota, soma = 0.0;
+
+    printf("Digite as 10 notas dos alunos:\n");
+
+    for (int i = 1; i <= 10; i++) {
+        printf("Nota %d: ", i);
+        scanf("%f", &nota);
+        soma += nota;
+    }
+
+    float media = soma / 10;
+
+    printf("A média das notas é: %.2f\n", media);
+
+    return 0;
+}
+
+
+10) Faça um software em c que imprima um triangulo usando o loop for;
+*
+**
+***
+Obs: só pode usar 1 print e 1 \n
+
+
+#include <stdio.h>
+#include <string.h>  // para strcat
+
+int main() {
+    int linhas = 3;
+    char texto[100] = "";  // buffer para armazenar o triângulo
+
+    for (int i = 1; i <= linhas; i++) {
+        for (int j = 0; j < i; j++) {
+            strcat(texto, "*");
+        }
+        strcat(texto, "\n");
+    }
+
+    printf("%s", texto);  // um único printf para todo o triângulo
+
+    return 0;
+}
+
+
+    printf("\n");
+    return 0;
+}
+
